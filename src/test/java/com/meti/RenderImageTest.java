@@ -1,11 +1,9 @@
 package com.meti;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,8 +19,8 @@ class RenderImageTest {
         Context context = new GraphicsContext(graphics);
         context.render(source);
 
-        int[] sourcePixels = ((DataBufferInt) source.getRaster().getDataBuffer()).getData();
-        int[] destinationPixels = ((DataBufferInt) destination.getRaster().getDataBuffer()).getData();
+        int[] sourcePixels = Images.getPixels(source);
+        int[] destinationPixels = Images.getPixels(destination);
         assertArrayEquals(sourcePixels, destinationPixels);
     }
 }
