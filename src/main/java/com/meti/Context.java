@@ -1,13 +1,7 @@
 package com.meti;
 
-import java.awt.image.BufferStrategy;
-import java.util.Objects;
+import java.awt.*;
 
-class Context {
-    private final BufferStrategy bufferStrategy;
-
-    public Context(BufferStrategy bufferStrategy) {
-        Objects.requireNonNull(bufferStrategy);
-        this.bufferStrategy = bufferStrategy;
-    }
+public interface Context {
+    void render(Image image);
 }

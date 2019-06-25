@@ -14,6 +14,6 @@ class AWTWindow implements Window {
     @Override
     public Context getContext(int numBuffers) {
         frame.createBufferStrategy(numBuffers);
-        return new Context(frame.getBufferStrategy());
+        return new BufferStrategyContext(frame.getBufferStrategy());
     }
 }
