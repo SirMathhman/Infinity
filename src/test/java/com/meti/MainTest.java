@@ -1,18 +1,18 @@
 package com.meti;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MainTest {
     private Frame frame;
 
     @BeforeEach
-    void before(){
+    void before() {
         this.frame = new Frame();
         this.frame.setSize(600, 400);
         this.frame.setTitle("Hello World");
@@ -20,17 +20,17 @@ class MainTest {
     }
 
     @Test
-    void size(){
+    void size() {
         assertEquals(new Dimension(600, 400), frame.getSize());
     }
 
     @Test
-    void title(){
+    void title() {
         assertEquals("Hello World", frame.getTitle());
     }
 
     @Test
-    void visible(){
+    void visible() {
         assertTrue(frame.isVisible());
     }
 }
