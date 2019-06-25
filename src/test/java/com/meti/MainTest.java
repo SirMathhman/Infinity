@@ -9,28 +9,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MainTest {
-    private Frame frame;
+    private static final Dimension EXPECTED_SIZE = new Dimension(600, 400);
+    private static final String EXPECTED_TITLE = "Hello World";
+    private final Frame frame = new Frame();
 
     @BeforeEach
     void before() {
-        this.frame = new Frame();
-        this.frame.setSize(600, 400);
-        this.frame.setTitle("Hello World");
+        this.frame.setSize(EXPECTED_SIZE);
+        this.frame.setTitle(EXPECTED_TITLE);
         this.frame.setVisible(true);
     }
 
     @Test
     void size() {
-        assertEquals(new Dimension(600, 400), frame.getSize());
+        Dimension frameSize = frame.getSize();
+        assertEquals(EXPECTED_SIZE, frameSize);
     }
 
     @Test
     void title() {
-        assertEquals("Hello World", frame.getTitle());
+        String frameTitle = frame.getTitle();
+        assertEquals(EXPECTED_TITLE, frameTitle);
     }
 
     @Test
     void visible() {
-        assertTrue(frame.isVisible());
+        boolean frameVisible = frame.isVisible();
+        assertTrue(frameVisible);
     }
 }
