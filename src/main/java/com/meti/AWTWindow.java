@@ -1,7 +1,6 @@
 package com.meti;
 
 import java.awt.*;
-import java.awt.image.BufferStrategy;
 
 class AWTWindow implements Window {
     private final Frame frame = new Frame();
@@ -13,8 +12,8 @@ class AWTWindow implements Window {
     }
 
     @Override
-    public BufferStrategy getContext(int numBuffers) {
+    public Context getContext(int numBuffers) {
         frame.createBufferStrategy(numBuffers);
-        return frame.getBufferStrategy();
+        return new Context(frame.getBufferStrategy());
     }
 }

@@ -1,9 +1,12 @@
 package com.meti;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.awt.image.BufferStrategy;
+import java.util.Objects;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class StrategyTest {
@@ -14,7 +17,8 @@ class StrategyTest {
 
     @Test
     void strategyPresent() {
-        BufferStrategy bufferStrategy = window.getContext(3);
-        assertNotNull(bufferStrategy);
+        assertDoesNotThrow(() -> {
+            window.getContext(3);
+        });
     }
 }
