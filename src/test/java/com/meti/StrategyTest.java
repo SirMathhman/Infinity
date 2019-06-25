@@ -7,7 +7,7 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class StrategyTest {
+class StrategyTest {
     private Frame frame;
 
     @BeforeEach
