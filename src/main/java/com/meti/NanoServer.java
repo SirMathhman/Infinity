@@ -5,7 +5,6 @@ import fi.iki.elonen.NanoHTTPD;
 import java.io.IOException;
 
 class NanoServer implements Server {
-    private static final int PORT = 80;
     private final NanoHTTPD internalServer;
 
     NanoServer(Route route) {
@@ -23,6 +22,7 @@ class NanoServer implements Server {
     }
 
     private static class InternalServer extends NanoHTTPD {
+        private static final int PORT = 80;
         private final Route route;
 
         InternalServer(Route route) {

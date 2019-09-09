@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ServerTest {
     private static final String CONTENT = "test";
-    private final Server server = new NanoServer(new TestRoute());
+    private final Server server = new NanoServer(new TestRoute(CONTENT));
 
     @Test
     void construct() throws IOException {
@@ -30,12 +30,16 @@ class ServerTest {
         server.stop();
     }
 
-    private static class TestRoute implements Route {
-        private final ContentType contentType = new HTMLType();
+    private static final class TestRoute implements Route {
+        private final String content;
+
+        private TestRoute(String content) {
+            this.content = content;
+        }
 
         @Override
         public Response process() {
-            return new InlineResponse(ResponseCode.OK, contentType, CONTENT.getBytes(StandardCharsets.UTF_8));
+            return new InlineResponse(ResponseCode.OK, new HTMLType(), content.getBytes(StandardCharsets.UTF_8));
         }
     }
 }
