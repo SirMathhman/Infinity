@@ -35,12 +35,12 @@ class NanoServer implements Server {
 
         @Override
         public Response serve(IHTTPSession session) {
-            com.meti.Response response = route.process();
+            com.meti.response.Response response = route.process();
             return convertToNanoResponse(response);
         }
 
-        private Response convertToNanoResponse(com.meti.Response response) {
-            String contentType = response.getContentType();
+        private Response convertToNanoResponse(com.meti.response.Response response) {
+            String contentType = response.getResponseType();
             int responseCode = response.getResponseCode();
             Response.Status status = lookup(responseCode);
             ByteArrayInputStream stream = new ByteArrayInputStream(response.getData());

@@ -1,19 +1,19 @@
-package com.meti;
+package com.meti.response;
 
 public class InlineResponse implements Response {
-    private final ContentType contentType;
+    private final ResponseType responseType;
     private final byte[] data;
     private final ResponseCode responseCode;
 
-    InlineResponse(ResponseCode responseCode, ContentType contentType, byte[] data) {
+    public InlineResponse(ResponseCode responseCode, ResponseType responseType, byte[] data) {
         this.responseCode = responseCode;
-        this.contentType = contentType;
+        this.responseType = responseType;
         this.data = data.clone();
     }
 
     @Override
-    public String getContentType() {
-        return contentType.getValue();
+    public String getResponseType() {
+        return responseType.getValue();
     }
 
     @Override

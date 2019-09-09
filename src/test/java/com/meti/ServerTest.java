@@ -1,5 +1,9 @@
 package com.meti;
 
+import com.meti.response.HTMLType;
+import com.meti.response.InlineResponse;
+import com.meti.response.Response;
+import com.meti.response.ResponseCodes;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

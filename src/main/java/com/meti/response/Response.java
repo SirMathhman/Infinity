@@ -1,7 +1,7 @@
-package com.meti;
+package com.meti.response;
 
 public interface Response {
-    String getContentType();
+    String getResponseType();
 
     byte[] getData();
 

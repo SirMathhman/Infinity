@@ -1,6 +1,6 @@
-package com.meti;
+package com.meti.response;
 
-public class HTMLType implements ContentType {
+public class HTMLType implements ResponseType {
     @Override
     public String getValue() {
         return "text/html";
