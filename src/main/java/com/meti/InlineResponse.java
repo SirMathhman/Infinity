@@ -1,9 +1,9 @@
 package com.meti;
 
 public class InlineResponse implements Response {
-    private final ResponseCode responseCode;
     private final ContentType contentType;
     private final byte[] data;
+    private final ResponseCode responseCode;
 
     InlineResponse(ResponseCode responseCode, ContentType contentType, byte[] data) {
         this.responseCode = responseCode;
@@ -12,17 +12,17 @@ public class InlineResponse implements Response {
     }
 
     @Override
-    public ResponseCode getResponseCode() {
-        return responseCode;
-    }
-
-    @Override
-    public ContentType getContentType() {
-        return contentType;
+    public String getContentType() {
+        return contentType.getValue();
     }
 
     @Override
     public byte[] getData() {
         return data.clone();
+    }
+
+    @Override
+    public int getResponseCode() {
+        return responseCode.getValue();
     }
 }

@@ -1,5 +1,5 @@
 package com.meti;
 
-public enum ResponseCode {
-    OK
+interface ResponseCode {
+    int getValue();
 }

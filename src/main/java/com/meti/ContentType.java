@@ -1,5 +1,5 @@
 package com.meti;
 
-public interface ContentType {
-    String asString();
+interface ContentType {
+    String getValue();
 }

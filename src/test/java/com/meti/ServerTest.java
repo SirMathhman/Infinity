@@ -39,7 +39,7 @@ class ServerTest {
 
         @Override
         public Response process() {
-            return new InlineResponse(ResponseCode.OK, new HTMLType(), content.getBytes(StandardCharsets.UTF_8));
+            return new InlineResponse(ResponseCodes.OK, new HTMLType(), content.getBytes(StandardCharsets.UTF_8));
         }
     }
 }

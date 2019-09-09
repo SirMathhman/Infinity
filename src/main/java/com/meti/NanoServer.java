@@ -2,7 +2,10 @@ package com.meti;
 
 import fi.iki.elonen.NanoHTTPD;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+
+import static fi.iki.elonen.NanoHTTPD.Response.Status.lookup;
 
 class NanoServer implements Server {
     private final NanoHTTPD internalServer;
@@ -32,7 +35,18 @@ class NanoServer implements Server {
 
         @Override
         public Response serve(IHTTPSession session) {
-            return route.processToNano();
+            com.meti.Response response = route.process();
+            return convertToNanoResponse(response);
+        }
+
+        private Response convertToNanoResponse(com.meti.Response response) {
+            String contentType = response.getContentType();
+            int responseCode = response.getResponseCode();
+            Response.Status status = lookup(responseCode);
+            ByteArrayInputStream stream = new ByteArrayInputStream(response.getData());
+            int dataLength = response.getData().length;
+            return newFixedLengthResponse(status, contentType,
+                    stream, (long) dataLength);
         }
     }
 }
