@@ -4,7 +4,8 @@ version := "1.0"
 
 scalaVersion := "2.12.7"
 
-mainClass in(Compile, run) := Some("com.meti.app.execute.ClientExecutor")
+// https://mvnrepository.com/artifact/org.nanohttpd/nanohttpd
+libraryDependencies += "org.nanohttpd" % "nanohttpd" % "+"
 
 libraryDependencies += "org.junit.jupiter" % "junit-jupiter-api" % "+" % Test
 libraryDependencies += "org.junit.jupiter" % "junit-jupiter-engine" % "+" % Test
