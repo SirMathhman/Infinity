@@ -8,7 +8,7 @@ public class SingletonRouter implements Router {
     }
 
     @Override
-    public Response route() {
+    public Response route(Context context) {
         return route.process();
     }
 }

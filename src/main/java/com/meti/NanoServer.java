@@ -32,11 +32,15 @@ class NanoServer implements Server {
 
         @Override
         public Response serve(IHTTPSession session) {
-            com.meti.Response response = router.route();
+            com.meti.Response response = route(new SessionContext(session));
             ResponseCode responseCode = response.getResponseCode();
             String responseType = response.getType();
             byte[] responseData = response.getData();
             return buildResponse(responseCode, responseType, responseData);
+        }
+
+        private com.meti.Response route(Context context) {
+            return router.route(context);
         }
 
         private Response buildResponse(ResponseCode responseCode, String type, byte[] bytes) {
