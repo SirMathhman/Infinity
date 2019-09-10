@@ -6,6 +6,7 @@ import com.meti.server.ServerBuilder;
 import com.meti.server.context.Context;
 import com.meti.server.response.Response;
 import com.meti.server.response.StringResponse;
+import com.meti.server.route.CollectionRouter;
 import com.meti.server.route.Route;
 import com.meti.server.route.Router;
 import org.junit.jupiter.api.AfterEach;

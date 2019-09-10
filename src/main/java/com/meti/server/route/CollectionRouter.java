@@ -1,9 +1,7 @@
-package com.meti;
+package com.meti.server.route;
 
 import com.meti.server.context.Context;
 import com.meti.server.response.Response;
-import com.meti.server.route.Route;
-import com.meti.server.route.Router;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -11,7 +9,7 @@ import java.util.Collections;
 public class CollectionRouter implements Router {
     private final Collection<? extends Route> routes;
 
-    CollectionRouter(Collection<? extends Route> routes) {
+    public CollectionRouter(Collection<? extends Route> routes) {
         this.routes = Collections.unmodifiableCollection(routes);
     }
 
