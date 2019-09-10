@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.server.response;
 
 public class InlineResponse implements Response {
     private final byte[] bytes;

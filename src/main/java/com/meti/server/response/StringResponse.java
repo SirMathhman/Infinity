@@ -1,13 +1,13 @@
-package com.meti;
+package com.meti.server.response;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-class StringResponse implements Response {
+public class StringResponse implements Response {
     private final ResponseCode responseCode;
     private final String type;
     private final String value;
 
-    StringResponse(ResponseCode responseCode, String value) {
+    public StringResponse(ResponseCode responseCode, String value) {
         this(value, responseCode, "text/plain");
     }
 

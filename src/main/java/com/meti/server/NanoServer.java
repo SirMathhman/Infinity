@@ -1,11 +1,15 @@
-package com.meti;
+package com.meti.server;
 
+import com.meti.server.context.Context;
+import com.meti.server.context.SessionContext;
+import com.meti.server.response.ResponseCode;
+import com.meti.server.route.Router;
 import fi.iki.elonen.NanoHTTPD;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-class NanoServer implements Server {
+public class NanoServer implements Server {
     private final NanoHTTPD internalServer;
 
     NanoServer(int port, Router router) {
@@ -32,14 +36,14 @@ class NanoServer implements Server {
 
         @Override
         public Response serve(IHTTPSession session) {
-            com.meti.Response response = route(new SessionContext(session));
+            com.meti.server.response.Response response = route(new SessionContext(session));
             ResponseCode responseCode = response.getResponseCode();
             String responseType = response.getType();
             byte[] responseData = response.getData();
             return buildResponse(responseCode, responseType, responseData);
         }
 
-        private com.meti.Response route(Context context) {
+        private com.meti.server.response.Response route(Context context) {
             return router.route(context);
         }
 

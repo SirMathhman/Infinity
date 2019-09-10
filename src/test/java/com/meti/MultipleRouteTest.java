@@ -1,5 +1,13 @@
 package com.meti;
 
+import com.meti.server.NanoServerBuilder;
+import com.meti.server.Server;
+import com.meti.server.ServerBuilder;
+import com.meti.server.context.Context;
+import com.meti.server.response.Response;
+import com.meti.server.response.StringResponse;
+import com.meti.server.route.Route;
+import com.meti.server.route.Router;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +17,7 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.Set;
 
-import static com.meti.ResponseCodes.OK;
+import static com.meti.server.response.ResponseCodes.OK;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -43,23 +51,6 @@ class MultipleRouteTest {
     @AfterEach
     void tearDown() {
         server.stop();
-    }
-
-    private static class CollectionRouter implements Router {
-        private final Collection<? extends Route> routes;
-
-        CollectionRouter(Collection<? extends Route> routes) {
-            this.routes = routes;
-        }
-
-        @Override
-        public Response route(Context context) {
-            return routes.stream()
-                    .filter(route -> route.canProcess(context))
-                    .findAny()
-                    .orElseThrow()
-                    .process();
-        }
     }
 
     private static class Route0 implements Route {

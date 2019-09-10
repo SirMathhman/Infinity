@@ -1,6 +1,6 @@
-package com.meti;
+package com.meti.server.response;
 
-enum ResponseCodes implements ResponseCode {
+public enum ResponseCodes implements ResponseCode {
     OK(200),
     BAD_REQUEST(400);
 

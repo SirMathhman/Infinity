@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.server;
 
 import java.io.IOException;
 

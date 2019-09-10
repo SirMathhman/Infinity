@@ -1,4 +1,6 @@
-package com.meti;
+package com.meti.server;
+
+import com.meti.server.route.Router;
 
 public class NanoServerBuilder implements ServerBuilder {
     private static final int HTTP_PORT = 80;

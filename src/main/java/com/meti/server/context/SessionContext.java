@@ -1,11 +1,11 @@
-package com.meti;
+package com.meti.server.context;
 
 import fi.iki.elonen.NanoHTTPD;
 
 public class SessionContext implements Context {
     private final NanoHTTPD.IHTTPSession session;
 
-    SessionContext(NanoHTTPD.IHTTPSession session) {
+    public SessionContext(NanoHTTPD.IHTTPSession session) {
         this.session = session;
     }
 

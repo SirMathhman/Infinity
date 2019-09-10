@@ -1,5 +1,6 @@
 package com.meti;
 
+import com.meti.server.response.ResponseCodes;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

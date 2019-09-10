@@ -1,5 +1,8 @@
 package com.meti;
 
+import com.meti.server.response.HTMLResponse;
+import com.meti.server.response.Response;
+import com.meti.server.response.ResponseCodes;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
