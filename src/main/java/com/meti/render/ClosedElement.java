@@ -1,8 +1,5 @@
 package com.meti.render;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class ClosedElement implements Component {
     private final Component content;
     private final String tagName;
@@ -17,9 +14,7 @@ public class ClosedElement implements Component {
     }
 
     public static Component group(String tagName, Component... content) {
-        return new ClosedElement(tagName, () -> Arrays.stream(content)
-                .map(Component::render)
-                .collect(Collectors.joining()));
+        return new ClosedElement(tagName, Component.compose(content));
     }
 
     @Override

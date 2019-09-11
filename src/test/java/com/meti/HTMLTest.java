@@ -15,7 +15,7 @@ class HTMLTest {
         Component body = new ClosedElement("body", header.render());
         Component docType = new OpenElement("!DOCTYPE html");
         Component html = ClosedElement.group("html", head, body);
-        Component element = () -> docType.render() + html.render();
+        Component element = Component.compose(docType, html);
         String actual = element.render();
         Assertions.assertEquals("<!DOCTYPE html><html>" +
                 "<head><title>Title</title></head>" +
