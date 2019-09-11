@@ -1,24 +1,24 @@
 package com.meti.render;
 
 public class ClosedElement implements Component {
+    private final Tag tag;
     private final Component content;
-    private final String tagName;
 
-    public ClosedElement(String tagName, String content) {
-        this(tagName, () -> content);
+    public ClosedElement(Tag tag, String content) {
+        this(tag, () -> content);
     }
 
-    private ClosedElement(String tagName, Component content) {
-        this.tagName = tagName;
+    private ClosedElement(Tag tag, Component content) {
+        this.tag = tag;
         this.content = content;
     }
 
-    public static Component compose(String tagName, Component... content) {
-        return new ClosedElement(tagName, Component.compose(content));
+    public static Component compose(Tag tag, Component... content) {
+        return new ClosedElement(tag, Component.compose(content));
     }
 
     @Override
     public String render() {
-        return "<" + tagName + ">" + content.render() + "</" + tagName + ">";
+        return tag.renderOpening() + content.render() + tag.renderClosing();
     }
 }

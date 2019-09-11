@@ -3,6 +3,7 @@ package com.meti.example;
 import com.meti.render.ClosedElement;
 import com.meti.render.Component;
 import com.meti.render.OpenElement;
+import com.meti.render.SimpleTag;
 import com.meti.server.NanoServerBuilder;
 import com.meti.server.Server;
 import com.meti.server.context.Context;
@@ -53,12 +54,12 @@ class HelloWorld {
     }
 
     private static Response process() {
-        Component title = new ClosedElement("title", "A Title");
-        Component head = ClosedElement.compose("head", title);
-        Component header = new ClosedElement("h1", "Hello World!");
-        Component body = ClosedElement.compose("body", header);
+        Component title = new ClosedElement(new SimpleTag("title"), "A Title");
+        Component head = ClosedElement.compose(new SimpleTag("head"), title);
+        Component header = new ClosedElement(new SimpleTag("h1"), "Hello World!");
+        Component body = ClosedElement.compose(new SimpleTag("body"), header);
         Component docType = new OpenElement("!DOCTYPE html");
-        Component html = ClosedElement.compose("html", head, body);
+        Component html = ClosedElement.compose(new SimpleTag("html"), head, body);
         return new HTMLResponse(ResponseCodes.OK, Component.compose(docType, html));
     }
 }

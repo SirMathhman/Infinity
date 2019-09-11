@@ -2,6 +2,7 @@ package com.meti;
 
 import com.meti.render.ClosedElement;
 import com.meti.render.Component;
+import com.meti.render.SimpleTag;
 import com.meti.server.response.HTMLResponse;
 import com.meti.server.response.Response;
 import com.meti.server.response.ResponseCodes;
@@ -32,7 +33,7 @@ class HTMLResponseTest {
 
     @Test
     void constructWithComponent() {
-        Component title = new ClosedElement("title", "Title");
+        Component title = new ClosedElement(new SimpleTag("title"), "Title");
         Response response = new HTMLResponse(ResponseCodes.OK, title);
         assertEquals(ResponseCodes.OK, response.getResponseCode());
         assertEquals("text/html", response.getType());
