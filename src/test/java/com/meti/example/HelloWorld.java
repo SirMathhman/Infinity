@@ -5,6 +5,7 @@ import com.meti.render.Component;
 import com.meti.render.OpenElement;
 import com.meti.server.NanoServerBuilder;
 import com.meti.server.Server;
+import com.meti.server.context.Context;
 import com.meti.server.response.HTMLResponse;
 import com.meti.server.response.Response;
 import com.meti.server.response.ResponseCodes;
@@ -47,7 +48,7 @@ class HelloWorld {
 
     private Server buildServer() {
         return new NanoServerBuilder()
-                .withRouter(new SingletonRouter(HelloWorld::process))
+                .withRouter(new SingletonRouter((Context context) -> process()))
                 .build();
     }
 

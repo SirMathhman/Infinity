@@ -5,7 +5,7 @@ public class InlineResponse implements Response {
     private final String type;
     private final ResponseCode responseCode;
 
-    public InlineResponse(byte[] bytes, String type, ResponseCode responseCode) {
+    public InlineResponse(ResponseCode responseCode, String type, byte[] bytes) {
         this.bytes = bytes.clone();
         this.type = type;
         this.responseCode = responseCode;

@@ -19,6 +19,6 @@ public class CollectionRouter implements Router {
                 .filter(route -> route.canProcess(context))
                 .findAny()
                 .orElseThrow()
-                .process();
+                .process(context);
     }
 }

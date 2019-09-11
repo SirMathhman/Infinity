@@ -61,7 +61,7 @@ class MultipleRouteTest {
         }
 
         @Override
-        public Response process() {
+        public Response process(Context context) {
             return new StringResponse(OK, "route0");
         }
     }
@@ -73,7 +73,7 @@ class MultipleRouteTest {
         }
 
         @Override
-        public Response process() {
+        public Response process(Context context) {
             return new StringResponse(OK, "route1");
         }
     }

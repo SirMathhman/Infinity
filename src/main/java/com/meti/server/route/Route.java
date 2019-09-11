@@ -8,5 +8,5 @@ public interface Route {
         return true;
     }
 
-    Response process();
+    Response process(Context context);
 }
