@@ -46,12 +46,12 @@ class MultipleRouteTest {
         Router router = new CollectionRouter(routes);
         ServerBuilder builder = new NanoServerBuilder();
         server = builder.withRouter(router).build();
-        server.start();
+        server.run();
     }
 
     @AfterEach
     void tearDown() {
-        server.stop();
+        server.terminate();
     }
 
     private static class Route0 implements Route {

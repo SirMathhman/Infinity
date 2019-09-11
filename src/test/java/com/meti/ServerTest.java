@@ -27,12 +27,12 @@ class ServerTest {
         Router router = new SingletonRouter(new TestRoute());
         ServerBuilder builder = new NanoServerBuilder();
         server = builder.withRouter(router).build();
-        server.start();
+        server.run();
     }
 
     @AfterEach
     void tearDown() {
-        server.stop();
+        server.terminate();
     }
 
     @Test

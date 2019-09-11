@@ -13,7 +13,7 @@ public class ClosedElement implements Component {
         this.content = content;
     }
 
-    public static Component group(String tagName, Component... content) {
+    public static Component compose(String tagName, Component... content) {
         return new ClosedElement(tagName, Component.compose(content));
     }
 

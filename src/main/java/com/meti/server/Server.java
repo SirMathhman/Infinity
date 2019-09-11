@@ -2,8 +2,13 @@ package com.meti.server;
 
 import java.io.IOException;
 
-public interface Server {
-    void start() throws IOException;
+public interface Server extends AutoCloseable {
+    @Override
+    default void close() {
+        terminate();
+    }
 
-    void stop();
+    void terminate();
+
+    void run() throws IOException;
 }

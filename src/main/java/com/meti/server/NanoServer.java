@@ -17,13 +17,13 @@ public class NanoServer implements Server {
     }
 
     @Override
-    public void start() throws IOException {
-        internalServer.start();
+    public void terminate() {
+        this.internalServer.stop();
     }
 
     @Override
-    public void stop() {
-        this.internalServer.stop();
+    public void run() throws IOException {
+        internalServer.start();
     }
 
     private static class InternalServer extends NanoHTTPD {
