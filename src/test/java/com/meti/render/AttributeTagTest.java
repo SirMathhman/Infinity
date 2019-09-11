@@ -16,7 +16,7 @@ class AttributeTagTest {
     void renderOpening() {
         Attributes attributes = new MapAttributes();
         attributes.put("id", "foo");
-        Tag tag = new AttributeTag("div", attributes);
-        assertEquals("<div id=\"foo\">", tag.renderOpening());
+        Tag tag = new AttributeTag("h1", attributes);
+        assertEquals("<h1 id=\"foo\">", tag.renderOpening());
     }
 }

@@ -1,6 +1,6 @@
 package com.meti.render;
 
-public interface Tag {
+interface Tag {
     String renderClosing();
 
     String renderOpening();
