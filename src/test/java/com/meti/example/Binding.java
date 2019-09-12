@@ -1,7 +1,13 @@
 package com.meti.example;
 
+import java.util.Optional;
+
 public interface Binding<T> {
     void clear();
+
+    default Optional<T> getOptionally() {
+        return Optional.ofNullable(get());
+    }
 
     T get();
 

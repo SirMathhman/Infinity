@@ -39,8 +39,8 @@ class Divider implements Container {
 
         Styles styles = new Styles();
         borders.build().forEach(styles::put);
-        styles.put("width", dimensions.width().get().render());
-        styles.put("height", dimensions.height().get().render());
+        dimensions.width().getOptionally().ifPresent(constraint -> styles.put("width", constraint.render()));
+        dimensions.height().getOptionally().ifPresent(constraint -> styles.put("height", constraint.render()));
         styles.put("position", position.get().name().toLowerCase(Locale.ENGLISH));
         attributes.put("style", styles);
         return new ClosedElement(new AttributeTag("div", attributes), Component.compose(children
