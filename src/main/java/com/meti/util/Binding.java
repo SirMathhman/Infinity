@@ -1,4 +1,4 @@
-package com.meti.example;
+package com.meti.util;
 
 import java.util.Optional;
 

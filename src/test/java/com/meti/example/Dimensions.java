@@ -1,5 +1,7 @@
 package com.meti.example;
 
+import com.meti.util.Binding;
+
 public interface Dimensions {
     Binding<Constraint> height();
 

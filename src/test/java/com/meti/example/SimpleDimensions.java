@@ -1,5 +1,8 @@
 package com.meti.example;
 
+import com.meti.util.Binding;
+import com.meti.util.SimpleBinding;
+
 class SimpleDimensions implements Dimensions {
     private final Binding<Constraint> height = new SimpleBinding<>();
     private final Binding<Constraint> width = new SimpleBinding<>();

@@ -1,5 +1,8 @@
 package com.meti.example;
 
+import com.meti.util.Binding;
+import com.meti.util.SimpleBinding;
+
 import java.net.MalformedURLException;
 
 final class DraggableDivContent implements ContextProxy, NodeBuilder {

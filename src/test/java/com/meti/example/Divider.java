@@ -1,6 +1,8 @@
 package com.meti.example;
 
 import com.meti.render.*;
+import com.meti.util.Binding;
+import com.meti.util.SimpleBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;

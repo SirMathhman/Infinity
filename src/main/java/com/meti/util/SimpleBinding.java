@@ -1,7 +1,7 @@
-package com.meti.example;
+package com.meti.util;
 
-class SimpleBinding<T> implements Binding<T> {
-    private T value;
+public class SimpleBinding<T> implements Binding<T> {
+    private T value = null;
 
     @Override
     public void clear() {
