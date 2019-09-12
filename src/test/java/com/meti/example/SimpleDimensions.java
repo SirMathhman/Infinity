@@ -1,5 +1,6 @@
 package com.meti.example;
 
+import com.meti.render.scene.style.Constraint;
 import com.meti.util.Binding;
 import com.meti.util.SimpleBinding;
 

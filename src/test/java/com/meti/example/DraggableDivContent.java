@@ -1,5 +1,10 @@
 package com.meti.example;
 
+import com.meti.render.scene.style.Constraint;
+import com.meti.render.scene.style.PixelConstraint;
+import com.meti.render.scene.style.RGBColors;
+import com.meti.render.scene.style.border.Border;
+import com.meti.render.scene.style.border.BorderType;
 import com.meti.util.Binding;
 import com.meti.util.SimpleBinding;
 

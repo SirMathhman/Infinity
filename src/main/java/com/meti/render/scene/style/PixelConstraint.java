@@ -1,6 +1,6 @@
-package com.meti.example;
+package com.meti.render.scene.style;
 
-class PixelConstraint implements Constraint {
+public class PixelConstraint implements Constraint {
     private final int value;
 
     public PixelConstraint(int value) {

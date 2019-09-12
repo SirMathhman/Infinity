@@ -1,6 +1,8 @@
 package com.meti.example;
 
 import com.meti.render.*;
+import com.meti.render.scene.style.border.Borders;
+import com.meti.render.scene.style.border.SimpleBorders;
 import com.meti.util.Binding;
 import com.meti.util.SimpleBinding;
 

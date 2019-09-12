@@ -1,5 +1,6 @@
 package com.meti.example;
 
+import com.meti.render.scene.style.border.Borders;
 import com.meti.util.Binding;
 
 public interface Container extends Node {
