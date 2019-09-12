@@ -14,7 +14,7 @@ public class ClosedElement implements Component {
     }
 
     public static Component compose(Tag tag, Component... content) {
-        return new ClosedElement(tag, compose(content));
+        return new ClosedElement(tag, Component.compose(content));
     }
 
     @Override
