@@ -2,7 +2,7 @@ package com.meti.render;
 
 import java.util.function.Supplier;
 
-interface Attributes extends Component {
+public interface Attributes extends Component {
     default void put(String name, String value) {
         put(name, () -> value);
     }

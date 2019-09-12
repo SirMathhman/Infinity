@@ -8,7 +8,7 @@ public class ClosedElement implements Component {
         this(tag, () -> content);
     }
 
-    private ClosedElement(Tag tag, Component content) {
+    public ClosedElement(Tag tag, Component content) {
         this.tag = tag;
         this.content = content;
     }

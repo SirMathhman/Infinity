@@ -1,15 +1,9 @@
 package com.meti.example;
 
-class Events {
-    public Binding<FunctionRef> onMouseDown() {
-        return null;
-    }
+public interface Events {
+    Binding<FunctionRef> onMouseDown();
 
-    public Binding<FunctionRef> onMouseMove() {
-        return null;
-    }
+    Binding<FunctionRef> onMouseMove();
 
-    public Binding<FunctionRef> onMouseUp() {
-        return null;
-    }
+    Binding<FunctionRef> onMouseUp();
 }

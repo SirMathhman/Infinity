@@ -4,7 +4,7 @@ public class AttributeTag implements Tag {
     private final Attributes attributes;
     private final String tagName;
 
-    AttributeTag(String tagName, Attributes attributes) {
+    public AttributeTag(String tagName, Attributes attributes) {
         this.tagName = tagName;
         this.attributes = attributes;
     }

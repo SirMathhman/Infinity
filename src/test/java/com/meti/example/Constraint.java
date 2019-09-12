@@ -1,4 +1,6 @@
 package com.meti.example;
 
-public interface Constraint {
+import com.meti.render.Component;
+
+public interface Constraint extends Component {
 }

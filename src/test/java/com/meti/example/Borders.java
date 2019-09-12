@@ -1,7 +1,9 @@
 package com.meti.example;
 
-class Borders {
-    void setAll(Border border) {
+import java.util.Map;
 
-    }
+public interface Borders {
+    Map<String, String> build();
+
+    void setAll(Border border);
 }
