@@ -4,6 +4,11 @@ class SimpleDimensions implements Dimensions {
     private final Binding<Constraint> height = new SimpleBinding<>();
     private final Binding<Constraint> width = new SimpleBinding<>();
 
+    public SimpleDimensions(Constraint width, Constraint height) {
+        this.width.set(width);
+        this.height.set(height);
+    }
+
     @Override
     public Binding<Constraint> height() {
         return height;

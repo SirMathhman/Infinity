@@ -7,7 +7,11 @@ class SimpleImageBuilder implements ImageBuilder {
     private final Dimensions dimensions;
     private final URL url;
 
-    public SimpleImageBuilder(String alt, Dimensions dimensions, URL url) {
+    SimpleImageBuilder() {
+        this("", null, null);
+    }
+
+    private SimpleImageBuilder(String alt, Dimensions dimensions, URL url) {
         this.alt = alt;
         this.dimensions = dimensions;
         this.url = url;
