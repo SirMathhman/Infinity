@@ -1,7 +1,9 @@
 package com.meti.example;
 
+import com.meti.render.scene.Node;
 import com.meti.render.scene.style.Constraint;
 import com.meti.render.scene.style.PixelConstraint;
+import com.meti.render.scene.style.SimpleDimensions;
 
 import java.net.MalformedURLException;
 import java.net.URL;

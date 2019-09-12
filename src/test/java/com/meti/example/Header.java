@@ -3,6 +3,7 @@ package com.meti.example;
 import com.meti.render.ClosedElement;
 import com.meti.render.Component;
 import com.meti.render.SimpleTag;
+import com.meti.render.scene.Node;
 
 import java.util.Locale;
 

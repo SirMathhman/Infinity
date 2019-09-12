@@ -1,15 +1,14 @@
-package com.meti.example;
-
-import com.meti.render.Component;
+package com.meti.render.scene.container;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-class Styles implements Component {
-    private final Map<String, String> values = new HashMap<>();
+class MapStyles implements Styles {
+    private final Map<String, String> values;
 
-    public Styles(String... values) {
+    MapStyles(String... values) {
+        this(new HashMap<>());
         int length = values.length;
         if (length % 2 != 0) throw new IllegalArgumentException("Odd number of arguments.");
         for (int i = 0; i < length; i += 2) {
@@ -17,6 +16,11 @@ class Styles implements Component {
         }
     }
 
+    MapStyles(Map<String, String> values) {
+        this.values = values;
+    }
+
+    @Override
     public void put(String name, String value) {
         values.put(name, value);
     }
@@ -25,6 +29,7 @@ class Styles implements Component {
     public String render() {
         return values.keySet()
                 .stream()
+                .sorted()
                 .map(s -> s + ":" + values.get(s))
                 .collect(Collectors.joining(";"));
     }

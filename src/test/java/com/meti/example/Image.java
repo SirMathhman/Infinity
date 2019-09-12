@@ -1,6 +1,8 @@
 package com.meti.example;
 
 import com.meti.render.*;
+import com.meti.render.scene.Node;
+import com.meti.render.scene.style.Dimensions;
 
 import java.net.URL;
 

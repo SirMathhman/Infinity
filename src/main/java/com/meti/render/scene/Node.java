@@ -1,4 +1,4 @@
-package com.meti.example;
+package com.meti.render.scene;
 
 import com.meti.render.Component;
 

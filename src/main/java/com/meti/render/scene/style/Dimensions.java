@@ -1,6 +1,5 @@
-package com.meti.example;
+package com.meti.render.scene.style;
 
-import com.meti.render.scene.style.Constraint;
 import com.meti.util.Binding;
 
 public interface Dimensions {

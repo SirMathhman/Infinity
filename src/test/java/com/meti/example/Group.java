@@ -1,6 +1,7 @@
 package com.meti.example;
 
 import com.meti.render.Component;
+import com.meti.render.scene.Node;
 
 import java.util.List;
 

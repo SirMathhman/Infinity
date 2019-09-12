@@ -1,5 +1,7 @@
-package com.meti.example;
+package com.meti.render.scene.container;
 
+import com.meti.render.scene.Node;
+import com.meti.render.scene.style.Dimensions;
 import com.meti.render.scene.style.border.Borders;
 import com.meti.util.Binding;
 

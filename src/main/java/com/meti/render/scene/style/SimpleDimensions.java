@@ -1,13 +1,11 @@
-package com.meti.example;
+package com.meti.render.scene.style;
 
-import com.meti.render.scene.style.Constraint;
 import com.meti.util.Binding;
 import com.meti.util.SimpleBinding;
 
-class SimpleDimensions implements Dimensions {
+public class SimpleDimensions implements Dimensions {
     private final Binding<Constraint> height = new SimpleBinding<>();
     private final Binding<Constraint> width = new SimpleBinding<>();
-
 
     public SimpleDimensions() {
         this(null, null);

@@ -1,5 +1,7 @@
 package com.meti.example;
 
+import com.meti.render.scene.style.Dimensions;
+
 import java.net.URL;
 
 class SimpleImageBuilder implements ImageBuilder {

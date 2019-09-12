@@ -1,5 +1,9 @@
 package com.meti.example;
 
+import com.meti.render.scene.Node;
+import com.meti.render.scene.container.Container;
+import com.meti.render.scene.container.Divider;
+import com.meti.render.scene.container.PositionType;
 import com.meti.render.scene.style.Constraint;
 import com.meti.render.scene.style.PixelConstraint;
 import com.meti.render.scene.style.RGBColors;

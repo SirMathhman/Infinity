@@ -1,5 +1,6 @@
 package com.meti.example;
 
+import com.meti.render.scene.Node;
 import com.meti.server.context.Request;
 import com.meti.server.response.Response;
 import com.meti.server.response.ResponseCodes;
