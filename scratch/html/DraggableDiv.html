@@ -24,13 +24,8 @@
     >
 </div>
 <script>
-    dragElement(document.getElementById("content"));
-
     function dragElement(element) {
         let deltaX = 0, deltaY = 0, oldX = 0, oldY = 0;
-        let header = document.getElementById("contentHeader");
-        let toSet = (header) ? header : element;
-        toSet.onmousedown = dragMouseDown;
 
         function dragMouseDown(e) {
             e.preventDefault();
@@ -54,7 +49,11 @@
             document.onmouseup = null;
             document.onmousemove = null;
         }
+
+        document.getElementById("contentHeader").onmousedown = dragMouseDown;
     }
+
+    dragElement(document.getElementById("content"));
 </script>
 </body>
 </html>

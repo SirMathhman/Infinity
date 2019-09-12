@@ -1,5 +1,5 @@
 package com.meti.server.context;
 
-public interface Context {
+public interface Request {
     String getPath();
 }

@@ -3,7 +3,7 @@ package com.meti;
 import com.meti.server.NanoServerBuilder;
 import com.meti.server.Server;
 import com.meti.server.ServerBuilder;
-import com.meti.server.context.Context;
+import com.meti.server.context.Request;
 import com.meti.server.response.Response;
 import com.meti.server.response.StringResponse;
 import com.meti.server.route.CollectionRouter;
@@ -56,24 +56,24 @@ class MultipleRouteTest {
 
     private static class Route0 implements Route {
         @Override
-        public boolean canProcess(Context context) {
-            return context.getPath().equals("/route0");
+        public boolean canProcess(Request request) {
+            return request.getPath().equals("/route0");
         }
 
         @Override
-        public Response process(Context context) {
+        public Response process(Request request) {
             return new StringResponse(OK, "route0");
         }
     }
 
     private static class Route1 implements Route {
         @Override
-        public boolean canProcess(Context context) {
-            return context.getPath().equals("/route1");
+        public boolean canProcess(Request request) {
+            return request.getPath().equals("/route1");
         }
 
         @Override
-        public Response process(Context context) {
+        public Response process(Request request) {
             return new StringResponse(OK, "route1");
         }
     }

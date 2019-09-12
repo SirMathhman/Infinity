@@ -1,6 +1,6 @@
 package com.meti.server.route;
 
-import com.meti.server.context.Context;
+import com.meti.server.context.Request;
 import com.meti.server.response.Response;
 
 import java.util.Collection;
@@ -14,11 +14,11 @@ public class CollectionRouter implements Router {
     }
 
     @Override
-    public Response route(Context context) {
+    public Response route(Request request) {
         return routes.stream()
-                .filter(route -> route.canProcess(context))
+                .filter(route -> route.canProcess(request))
                 .findAny()
                 .orElseThrow()
-                .process(context);
+                .process(request);
     }
 }

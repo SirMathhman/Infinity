@@ -1,15 +1,8 @@
 package com.meti.example;
 
-import com.meti.render.ClosedElement;
-import com.meti.render.Component;
-import com.meti.render.OpenElement;
-import com.meti.render.SimpleTag;
 import com.meti.server.NanoServerBuilder;
 import com.meti.server.Server;
-import com.meti.server.context.Request;
-import com.meti.server.response.HTMLResponse;
-import com.meti.server.response.Response;
-import com.meti.server.response.ResponseCodes;
+import com.meti.server.route.Route;
 import com.meti.server.route.SingletonRouter;
 
 import java.io.IOException;
@@ -18,11 +11,11 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-class HelloWorld {
+class DraggableDiv {
     private static final Logger logger = Logger.getAnonymousLogger();
 
     public static void main(String[] args) {
-        new HelloWorld().run();
+        new DraggableDiv().run();
     }
 
     private void run() {
@@ -48,18 +41,9 @@ class HelloWorld {
     }
 
     private Server buildServer() {
+        Route route = new DraggableDivRoute();
         return new NanoServerBuilder()
-                .withRouter(new SingletonRouter((Request request) -> process()))
+                .withRouter(new SingletonRouter(route))
                 .build();
-    }
-
-    private static Response process() {
-        Component title = new ClosedElement(new SimpleTag("title"), "A Title");
-        Component head = ClosedElement.compose(new SimpleTag("head"), title);
-        Component header = new ClosedElement(new SimpleTag("h1"), "Hello World!");
-        Component body = ClosedElement.compose(new SimpleTag("body"), header);
-        Component docType = new OpenElement("!DOCTYPE html");
-        Component html = ClosedElement.compose(new SimpleTag("html"), head, body);
-        return new HTMLResponse(ResponseCodes.OK, Component.compose(docType, html));
     }
 }

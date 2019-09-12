@@ -3,7 +3,7 @@ package com.meti;
 import com.meti.server.NanoServerBuilder;
 import com.meti.server.Server;
 import com.meti.server.ServerBuilder;
-import com.meti.server.context.Context;
+import com.meti.server.context.Request;
 import com.meti.server.response.InlineResponse;
 import com.meti.server.response.Response;
 import com.meti.server.response.ResponseCodes;
@@ -44,7 +44,7 @@ class ServerTest {
 
     private static class TestRoute implements Route {
         @Override
-        public Response process(Context context) {
+        public Response process(Request request) {
             byte[] bytes = "test".getBytes(UTF_8);
             String mime = "text/plain";
             return new InlineResponse(ResponseCodes.OK, mime, bytes);

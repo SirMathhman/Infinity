@@ -1,6 +1,6 @@
 package com.meti.server.route;
 
-import com.meti.server.context.Context;
+import com.meti.server.context.Request;
 import com.meti.server.response.InlineResponse;
 import com.meti.server.response.Response;
 import com.meti.server.response.ResponseCodes;
@@ -23,21 +23,21 @@ public class AssetRoute implements Route {
     }
 
     @Override
-    public boolean canProcess(Context context) {
-        return exists(buildPath(context));
+    public boolean canProcess(Request request) {
+        return exists(buildPath(request));
     }
 
     @Override
-    public Response process(Context context) {
+    public Response process(Request request) {
         try {
-            return processExceptionally(context);
+            return processExceptionally(request);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private Response processExceptionally(Context context) throws IOException {
-        Path asset = buildPath(context);
+    private Response processExceptionally(Request request) throws IOException {
+        Path asset = buildPath(request);
         byte[] bytes = readAllBytes(asset);
         return new InlineResponse(ResponseCodes.OK, ResponseTypes.get(asset), bytes);
     }
@@ -50,8 +50,8 @@ public class AssetRoute implements Route {
         return bytes;
     }
 
-    private Path buildPath(Context context) {
-        String path = context.getPath();
+    private Path buildPath(Request request) {
+        String path = request.getPath();
         String child = path.replace(virtualPath + "/", "");
         return internalPath.resolve(child);
     }

@@ -1,6 +1,6 @@
 package com.meti;
 
-import com.meti.server.context.Context;
+import com.meti.server.context.Request;
 import com.meti.server.route.Route;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class RouteTest {
 
     @Test
     void canProcess() {
-        assertTrue(((Route) (Context context) -> {
+        assertTrue(((Route) (Request request) -> {
             throw new UnsupportedOperationException();
         }).canProcess(null));
     }

@@ -1,12 +1,12 @@
 package com.meti.server.route;
 
-import com.meti.server.context.Context;
+import com.meti.server.context.Request;
 import com.meti.server.response.Response;
 
 public interface Route {
-    default boolean canProcess(Context context) {
+    default boolean canProcess(Request request) {
         return true;
     }
 
-    Response process(Context context);
+    Response process(Request request);
 }

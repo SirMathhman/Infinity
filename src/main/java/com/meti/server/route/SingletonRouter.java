@@ -1,6 +1,6 @@
 package com.meti.server.route;
 
-import com.meti.server.context.Context;
+import com.meti.server.context.Request;
 import com.meti.server.response.Response;
 
 import java.util.NoSuchElementException;
@@ -13,11 +13,11 @@ public class SingletonRouter implements Router {
     }
 
     @Override
-    public Response route(Context context) {
-        if (route.canProcess(context)) {
-            return route.process(context);
+    public Response route(Request request) {
+        if (route.canProcess(request)) {
+            return route.process(request);
         } else {
-            throw new NoSuchElementException("Route cannot be applied to " + context.getPath());
+            throw new NoSuchElementException("Route cannot be applied to " + request.getPath());
         }
     }
 }
