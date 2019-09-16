@@ -39,7 +39,7 @@ public class NanoServer implements Server {
         }
 
         static Response toNanoResponse(com.meti.Response response) {
-            return newFixedLengthResponse(Response.Status.lookup(response.getResponseCode().getValue()), response.getContentType().getContentType(), new ByteArrayInputStream(response.getBytes()), response.getBytes().length);
+            return newFixedLengthResponse(Response.Status.lookup(response.getResponseCode().getValue()), response.getContentType().getValue(), new ByteArrayInputStream(response.getBytes()), response.getBytes().length);
         }
 
         @Override

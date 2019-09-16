@@ -13,7 +13,7 @@ class PlainTextResponseTest {
 
     @Test
     void getContentType() {
-        assertEquals(ContentType.PLAINTEXT, new PlainTextResponse(null).getContentType());
+        assertEquals(ContentTypes.PLAINTEXT, new PlainTextResponse(null).getContentType());
     }
 
     @Test

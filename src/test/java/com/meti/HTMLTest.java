@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ServerTest {
+class HTMLTest {
     private Server server;
 
     @BeforeEach
@@ -27,13 +29,16 @@ class ServerTest {
     @Test
     void construct() throws IOException {
         byte[] bytes = URLUtils.readAllBytes(new URL("http://localhost:80"));
-        assertEquals("test", new String(bytes));
+        assertEquals("<!DOCTYPE html><html></html>", new String(bytes));
     }
 
     public static class TestRoute implements Route {
         @Override
         public Response process() {
-            return new InlineResponse(ResponseCodes.OK, new ContentTypes("text/plain"), "test".getBytes());
+            List<Component> list = new ArrayList<>();
+            list.add(new Tag("!DOCTYPE html"));
+            list.add(new Element("html"));
+            return new HTMLResponse(ResponseCodes.OK, new Group(list));
         }
     }
 }

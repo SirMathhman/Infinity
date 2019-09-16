@@ -14,7 +14,7 @@ public class PlainTextResponse implements Response {
 
     @Override
     public ContentType getContentType() {
-        return ContentType.PLAINTEXT;
+        return ContentTypes.PLAINTEXT;
     }
 
     @Override
