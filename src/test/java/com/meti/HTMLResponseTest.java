@@ -1,9 +1,6 @@
 package com.meti;
 
-import com.meti.render.Component;
-import com.meti.render.Element;
-import com.meti.render.Group;
-import com.meti.render.Tag;
+import com.meti.render.*;
 import com.meti.response.HTMLResponse;
 import com.meti.response.Response;
 import com.meti.response.ResponseCodes;
@@ -19,7 +16,7 @@ class HTMLResponseTest {
     void render() {
         List<Component> list = new ArrayList<>();
         list.add(new Tag("!DOCTYPE html"));
-        list.add(new Element("html"));
+        list.add(new ClosedElement("html", new SimpleElementContent()));
         Response response = new HTMLResponse(ResponseCodes.OK, new Group(list));
         assertEquals("<!DOCTYPE html><html></html>", new String(response.getBytes()));
     }

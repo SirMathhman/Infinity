@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ElementTest {
+class ClosedElementTest {
 
     @Test
     void renderWithChildren() {
         ElementContent headContent = new SimpleElementContent();
-        headContent.append(new Element("title", "Title"));
-        Component element = new Element("head", headContent);
+        headContent.append(new ClosedElement("title", new SimpleElementContent().append("Title")));
+        Component element = new ClosedElement("head", headContent);
         assertEquals("<head><title>Title</title></head>", element.render());
     }
 }

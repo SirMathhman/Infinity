@@ -3,19 +3,11 @@ package com.meti.render;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Element implements Component {
+public class ClosedElement implements Component {
     private final String tagName;
     private final ElementContent content;
 
-    public Element(String tagName) {
-        this(tagName, new SimpleElementContent());
-    }
-
-    Element(String tagName, String value) {
-        this(tagName, new SimpleElementContent().append(value));
-    }
-
-    Element(String tagName, ElementContent content) {
+    public ClosedElement(String tagName, ElementContent content) {
         this.tagName = tagName;
         this.content = content;
     }

@@ -1,6 +1,6 @@
 package com.meti.render;
 
-class SimpleElementContent implements ElementContent {
+public class SimpleElementContent implements ElementContent {
     private final StringBuilder builder = new StringBuilder();
 
     @Override
