@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.server;
 
 import fi.iki.elonen.NanoHTTPD;
 

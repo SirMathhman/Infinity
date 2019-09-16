@@ -1,12 +1,12 @@
-package com.meti;
+package com.meti.render;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Element implements Component {
+public class Element implements Component {
     private final String tagName;
 
-    Element(String tagName) {
+    public Element(String tagName) {
         this.tagName = tagName;
     }
 

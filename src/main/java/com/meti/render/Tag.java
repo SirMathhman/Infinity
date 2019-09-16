@@ -1,9 +1,9 @@
-package com.meti;
+package com.meti.render;
 
-class Tag implements Component {
+public class Tag implements Component {
     private final String content;
 
-    Tag(String content) {
+    public Tag(String content) {
         this.content = content;
     }
 

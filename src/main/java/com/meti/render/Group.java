@@ -1,9 +1,9 @@
-package com.meti;
+package com.meti.render;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-class Group implements Component {
+public class Group implements Component {
     private final List<Component> components;
 
     public Group(List<Component> components) {

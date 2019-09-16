@@ -1,5 +1,6 @@
 package com.meti;
 
+import com.meti.render.Component;
 import com.meti.response.Response;
 import com.meti.response.ResponseCode;
 import com.meti.response.ResponseType;
