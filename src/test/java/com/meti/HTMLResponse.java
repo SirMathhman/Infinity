@@ -1,5 +1,10 @@
 package com.meti;
 
+import com.meti.response.Response;
+import com.meti.response.ResponseCode;
+import com.meti.response.ResponseType;
+import com.meti.response.ResponseTypes;
+
 class HTMLResponse implements Response {
     private final Component root;
     private final ResponseCode responseCode;

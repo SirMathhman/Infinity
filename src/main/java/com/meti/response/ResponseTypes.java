@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.response;
 
 public class ResponseTypes implements ResponseType {
     public static final ResponseType PLAINTEXT = new ResponseTypes("text/plain");

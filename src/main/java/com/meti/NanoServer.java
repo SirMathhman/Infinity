@@ -38,7 +38,7 @@ public class NanoServer implements Server {
             this.router = router;
         }
 
-        static Response toNanoResponse(com.meti.Response response) {
+        static Response toNanoResponse(com.meti.response.Response response) {
             return newFixedLengthResponse(Response.Status.lookup(response.getResponseCode().getValue()), response.getContentType().getValue(), new ByteArrayInputStream(response.getBytes()), response.getBytes().length);
         }
 

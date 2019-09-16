@@ -1,7 +1,12 @@
 package com.meti.example;
 
 
-import com.meti.*;
+import com.meti.NanoServer;
+import com.meti.Route;
+import com.meti.Router;
+import com.meti.Server;
+import com.meti.response.PlainTextResponse;
+import com.meti.response.Response;
 
 import java.io.IOException;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.response;
 
 public class InlineResponse implements Response {
     private final ResponseCode responseCode;

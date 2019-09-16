@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.response;
 
 public enum ResponseCodes implements ResponseCode {
     OK(200);

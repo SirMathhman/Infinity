@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.response;
 
 public interface Response {
     ResponseCode getResponseCode();

@@ -1,4 +1,4 @@
-package com.meti;
+package com.meti.response;
 
 public class PlainTextResponse implements Response {
     private String value;
@@ -8,7 +8,7 @@ public class PlainTextResponse implements Response {
     }
 
     @Override
-    public ResponseCodes getResponseCode() {
+    public ResponseCode getResponseCode() {
         return ResponseCodes.OK;
     }
 
