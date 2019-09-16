@@ -15,8 +15,8 @@ class HTMLResponse implements Response {
     }
 
     @Override
-    public ContentType getContentType() {
-        return ContentTypes.HTML;
+    public ResponseType getContentType() {
+        return ResponseTypes.HTML;
     }
 
     @Override

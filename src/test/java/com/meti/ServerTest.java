@@ -33,7 +33,7 @@ class ServerTest {
     public static class TestRoute implements Route {
         @Override
         public Response process() {
-            return new InlineResponse(ResponseCodes.OK, new ContentTypes("text/plain"), "test".getBytes());
+            return new InlineResponse(ResponseCodes.OK, new ResponseTypes("text/plain"), "test".getBytes());
         }
     }
 }

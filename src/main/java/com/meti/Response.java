@@ -3,7 +3,7 @@ package com.meti;
 public interface Response {
     ResponseCode getResponseCode();
 
-    ContentType getContentType();
+    ResponseType getContentType();
 
     byte[] getBytes();
 }

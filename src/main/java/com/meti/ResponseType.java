@@ -1,5 +1,5 @@
 package com.meti;
 
-interface ContentType {
+interface ResponseType {
     String getValue();
 }
