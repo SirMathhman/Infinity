@@ -45,7 +45,7 @@ class HTMLTest {
         public Response process() {
             List<Component> list = new ArrayList<>();
             list.add(new Tag("!DOCTYPE html"));
-            list.add(new ClosedElement("html", new SimpleElementContent()));
+            list.add(new ClosedElementBuilder().withTagName("html").withContent(new SimpleElementContent()).build());
             return new HTMLResponse(ResponseCodes.OK, new Group(list));
         }
     }

@@ -16,7 +16,7 @@ class HTMLResponseTest {
     void render() {
         List<Component> list = new ArrayList<>();
         list.add(new Tag("!DOCTYPE html"));
-        list.add(new ClosedElement("html", new SimpleElementContent()));
+        list.add(new ClosedElementBuilder().withTagName("html").withContent(new SimpleElementContent()).build());
         Response response = new HTMLResponse(ResponseCodes.OK, new Group(list));
         assertEquals("<!DOCTYPE html><html></html>", new String(response.getBytes()));
     }
