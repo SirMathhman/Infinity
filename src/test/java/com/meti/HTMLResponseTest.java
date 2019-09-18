@@ -6,6 +6,7 @@ import com.meti.response.Response;
 import com.meti.response.ResponseCodes;
 import org.junit.jupiter.api.Test;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,6 @@ class HTMLResponseTest {
         list.add(new Tag("!DOCTYPE html"));
         list.add(new ClosedElementBuilder().withTagName("html").withContent(new SimpleElementContent()).build());
         Response response = new HTMLResponse(ResponseCodes.OK, new Group(list));
-        assertEquals("<!DOCTYPE html><html></html>", new String(response.getBytes()));
+        assertEquals("<!DOCTYPE html><html></html>", new String(response.getBytes(), StandardCharsets.UTF_8));
     }
 }
