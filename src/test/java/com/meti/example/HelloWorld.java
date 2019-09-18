@@ -5,8 +5,8 @@ import com.meti.response.PlainTextResponse;
 import com.meti.response.Response;
 import com.meti.server.NanoServer;
 import com.meti.server.Route;
-import com.meti.server.Router;
 import com.meti.server.Server;
+import com.meti.server.SingletonRouter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -26,7 +26,7 @@ public class HelloWorld {
     }
 
     private void runExceptionally() throws IOException {
-        Server server = new NanoServer(80, new Router(new HelloWorldRoute()));
+        Server server = new NanoServer(80, new SingletonRouter(new HelloWorldRoute()));
         server.start();
         waitForExit();
         server.stop();

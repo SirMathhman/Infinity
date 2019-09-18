@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public class URLUtils {
+public final class URLUtils {
+    private URLUtils() {
+    }
+
     public static byte[] readAllBytes(URL url) throws IOException {
         byte[] bytes;
         try (InputStream inputStream = url.openStream()) {

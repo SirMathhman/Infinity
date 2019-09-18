@@ -2,15 +2,15 @@ package com.meti.response;
 
 public class ResponseTypes implements ResponseType {
     public static final ResponseType PLAINTEXT = new ResponseTypes("text/plain");
-    public static final ResponseType HTML = new ResponseTypes("text/html");
-    private final String contentType;
+    static final ResponseType HTML = new ResponseTypes("text/html");
+    private final String value;
 
-    public ResponseTypes(String contentType) {
-        this.contentType = contentType;
+    public ResponseTypes(String value) {
+        this.value = value;
     }
 
     @Override
     public String getValue() {
-        return contentType;
+        return value;
     }
 }

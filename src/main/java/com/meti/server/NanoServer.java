@@ -12,34 +12,32 @@ public class NanoServer implements Server {
         this(new InternalServer(port, router));
     }
 
-    public NanoServer(NanoHTTPD internalServer) {
+    private NanoServer(NanoHTTPD internalServer) {
         this.internalServer = internalServer;
-    }
-
-    public NanoHTTPD getInternalServer() {
-        return internalServer;
     }
 
     @Override
     public void start() throws IOException {
-        getInternalServer().start();
+        internalServer.start();
     }
 
     @Override
     public void stop() {
-        getInternalServer().stop();
+        internalServer.stop();
     }
 
-    static class InternalServer extends NanoHTTPD {
+    private static final class InternalServer extends NanoHTTPD {
         private final Router router;
 
-        public InternalServer(int port, Router router) {
+        private InternalServer(int port, Router router) {
             super(port);
             this.router = router;
         }
 
         static Response toNanoResponse(com.meti.response.Response response) {
-            return newFixedLengthResponse(Response.Status.lookup(response.getResponseCode().getValue()), response.getContentType().getValue(), new ByteArrayInputStream(response.getBytes()), response.getBytes().length);
+            return newFixedLengthResponse(Response.Status.lookup(response.getResponseCode().getValue()),
+                    response.getContentType().getValue(), new ByteArrayInputStream(response.getBytes()),
+                    (long) response.getBytes().length);
         }
 
         @Override

@@ -6,8 +6,8 @@ import com.meti.response.Response;
 import com.meti.response.ResponseCodes;
 import com.meti.server.NanoServer;
 import com.meti.server.Route;
-import com.meti.server.Router;
 import com.meti.server.Server;
+import com.meti.server.SingletonRouter;
 import com.meti.util.URLUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,18 +15,19 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HTMLTest {
-    private Server server;
+    private Server server = null;
 
-    @BeforeEach
-    void setUp() throws IOException {
-        server = new NanoServer(80, new Router(new TestRoute()));
-        server.start();
+    @Test
+    void construct() throws IOException {
+        byte[] bytes = URLUtils.readAllBytes(new URL("http://localhost:80"));
+        assertEquals("<!DOCTYPE html><html></html>", new String(bytes, StandardCharsets.UTF_8));
     }
 
     @AfterEach
@@ -34,13 +35,13 @@ class HTMLTest {
         server.stop();
     }
 
-    @Test
-    void construct() throws IOException {
-        byte[] bytes = URLUtils.readAllBytes(new URL("http://localhost:80"));
-        assertEquals("<!DOCTYPE html><html></html>", new String(bytes));
+    @BeforeEach
+    void setUp() throws IOException {
+        server = new NanoServer(80, new SingletonRouter(new TestRoute()));
+        server.start();
     }
 
-    public static class TestRoute implements Route {
+    private static class TestRoute implements Route {
         @Override
         public Response process() {
             List<Component> list = new ArrayList<>();

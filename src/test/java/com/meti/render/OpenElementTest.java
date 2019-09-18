@@ -9,6 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class OpenElementTest {
     @Test
+    void construct() {
+        Component element = new OpenElement("foo");
+        assertEquals("<foo>", element.render());
+    }
+
+    @Test
     void constructWithoutAttributes() {
         Component element = new OpenElement("test");
         assertEquals("<test>", element.render());
