@@ -12,8 +12,14 @@ class ClosedElementTest {
     @Test
     void renderWithChildren() {
         ElementContent headContent = new SimpleElementContent();
-        headContent.append(new ClosedElementBuilder().withTagName("title").withContent(new SimpleElementContent().append("Title")).build());
-        Component element = new ClosedElementBuilder().withTagName("head").withContent(headContent).build();
+        headContent.append(new ClosedElementBuilder()
+                .withTagName("title")
+                .withContent(new SimpleElementContent().append("Title"))
+                .build());
+        Component element = new ClosedElementBuilder()
+                .withTagName("head")
+                .withContent(headContent)
+                .build();
         assertEquals("<head><title>Title</title></head>", element.render());
     }
 

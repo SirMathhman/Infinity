@@ -2,34 +2,38 @@ package com.meti.render;
 
 import java.util.HashMap;
 
-public class ClosedElementBuilder {
-    private String tagName;
-    private ElementContent content;
-    private Component attributes;
+public class ClosedElementBuilder implements ElementBuilder {
+    private final Component attributes;
+    private final ElementContent content;
+    private final String tagName;
 
     public ClosedElementBuilder() {
         this("", new SimpleElementContent(), new MapAttributes(new HashMap<>()));
     }
 
-    public ClosedElementBuilder(String tagName, ElementContent content, Component attributes) {
+    private ClosedElementBuilder(String tagName, ElementContent content, Component attributes) {
         this.tagName = tagName;
         this.content = content;
         this.attributes = attributes;
     }
 
-    public ClosedElementBuilder withTagName(String tagName) {
-        return new ClosedElementBuilder(tagName, content, attributes);
-    }
-
-    public ClosedElementBuilder withContent(ElementContent content) {
-        return new ClosedElementBuilder(tagName, content, attributes);
-    }
-
-    public ClosedElement build() {
+    @Override
+    public Component build() {
         return new ClosedElement(tagName, attributes, content);
     }
 
-    public ClosedElementBuilder withAttributes(Component attributes) {
+    @Override
+    public ElementBuilder withAttributes(Component attributes) {
+        return new ClosedElementBuilder(tagName, content, attributes);
+    }
+
+    @Override
+    public ElementBuilder withContent(ElementContent content) {
+        return new ClosedElementBuilder(tagName, content, attributes);
+    }
+
+    @Override
+    public ElementBuilder withTagName(String tagName) {
         return new ClosedElementBuilder(tagName, content, attributes);
     }
 }
