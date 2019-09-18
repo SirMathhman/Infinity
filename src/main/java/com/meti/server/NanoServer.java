@@ -1,5 +1,7 @@
 package com.meti.server;
 
+import com.meti.response.ResponseCode;
+import com.meti.response.ResponseType;
 import fi.iki.elonen.NanoHTTPD;
 
 import java.io.ByteArrayInputStream;
@@ -35,9 +37,11 @@ public class NanoServer implements Server {
         }
 
         static Response toNanoResponse(com.meti.response.Response response) {
-            return newFixedLengthResponse(Response.Status.lookup(response.getResponseCode().getValue()),
-                    response.getContentType().getValue(), new ByteArrayInputStream(response.getBytes()),
-                    (long) response.getBytes().length);
+            ResponseCode responseCode = response.getResponseCode();
+            ResponseType contentType = response.getContentType();
+            byte[] data = response.getBytes();
+            return newFixedLengthResponse(Response.Status.lookup(responseCode.getValue()),
+                    contentType.getValue(), new ByteArrayInputStream(data), data.length);
         }
 
         @Override
