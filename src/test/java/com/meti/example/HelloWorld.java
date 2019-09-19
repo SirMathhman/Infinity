@@ -3,13 +3,9 @@ package com.meti.example;
 
 import com.meti.response.PlainTextResponse;
 import com.meti.response.Response;
-import com.meti.server.NanoServer;
-import com.meti.server.Route;
-import com.meti.server.Server;
-import com.meti.server.SingletonRouter;
+import com.meti.server.*;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class HelloWorld {
@@ -33,7 +29,7 @@ public class HelloWorld {
     }
 
     private void waitForExit() {
-        try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
+        try (Scanner scanner = new Scanner(System.in)) {
             boolean shouldContinue;
             do {
                 shouldContinue = !scanner.nextLine().equals("exit");
@@ -43,7 +39,7 @@ public class HelloWorld {
 
     private static class HelloWorldRoute implements Route {
         @Override
-        public Response process() {
+        public Response process(Context context) {
             return new PlainTextResponse("Hello World!");
         }
     }

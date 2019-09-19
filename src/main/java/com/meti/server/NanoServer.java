@@ -46,7 +46,8 @@ public class NanoServer implements Server {
 
         @Override
         public Response serve(IHTTPSession session) {
-            return toNanoResponse(router.process());
+            Context context = new SessionContext(session);
+            return toNanoResponse(router.process(context));
         }
     }
 }

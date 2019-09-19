@@ -4,10 +4,7 @@ import com.meti.render.*;
 import com.meti.response.HTMLResponse;
 import com.meti.response.Response;
 import com.meti.response.ResponseCodes;
-import com.meti.server.NanoServer;
-import com.meti.server.Route;
-import com.meti.server.Server;
-import com.meti.server.SingletonRouter;
+import com.meti.server.*;
 import com.meti.util.URLUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,7 +40,7 @@ class HTMLTest {
 
     private static class TestRoute implements Route {
         @Override
-        public Response process() {
+        public Response process(Context context) {
             List<Component> list = new ArrayList<>();
             list.add(new Tag("!DOCTYPE html"));
             list.add(new ClosedElementBuilder().withTagName("html").withContent(new SimpleElementContent()).build());
