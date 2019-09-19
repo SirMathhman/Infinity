@@ -2,14 +2,9 @@ package com.meti;
 
 import com.meti.render.Component;
 
-class ReferencedConsole extends Referenced implements Console {
+class ReferencedConsole implements Console {
     @Override
     public Component log(Component reference) {
-        return () -> getReference() + ".log(" + reference.render() + ");";
-    }
-
-    @Override
-    protected String getReference() {
-        return "console";
+        return () -> "console.log(" + reference.render() + ");";
     }
 }
