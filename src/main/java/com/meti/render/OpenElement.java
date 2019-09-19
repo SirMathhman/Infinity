@@ -2,7 +2,7 @@ package com.meti.render;
 
 import java.util.HashMap;
 
-class OpenElement implements Component {
+public class OpenElement implements Component {
     private final String tagName;
     private final Component attributes;
 
@@ -10,7 +10,7 @@ class OpenElement implements Component {
         this(tagName, new MapAttributes(new HashMap<>()));
     }
 
-    OpenElement(String tagName, Component attributes) {
+    public OpenElement(String tagName, Component attributes) {
         this.tagName = tagName;
         this.attributes = attributes;
     }

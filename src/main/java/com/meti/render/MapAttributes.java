@@ -3,10 +3,10 @@ package com.meti.render;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-class MapAttributes implements Component {
+public class MapAttributes implements Component {
     private final Map<String, String> attributes;
 
-    MapAttributes(Map<String, String> attributes) {
+    public MapAttributes(Map<String, String> attributes) {
         this.attributes = attributes;
     }
 

@@ -18,7 +18,7 @@ public class AssetRoute implements Route {
     private final String virtualPath;
     private final Path directory;
 
-    public AssetRoute(String virtualPath, Path directory) {
+    public AssetRoute(Path directory, String virtualPath) {
         this.virtualPath = virtualPath;
         this.directory = directory;
     }

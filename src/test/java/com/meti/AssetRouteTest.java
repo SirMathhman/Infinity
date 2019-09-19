@@ -37,7 +37,7 @@ class AssetRouteTest {
 
     @Test
     void construct() {
-        Router router = new SingletonRouter(new AssetRoute("/assets", testDirectory));
+        Router router = new SingletonRouter(new AssetRoute(testDirectory, "/assets"));
         Response response = router.process(() -> "/assets/test/test.txt");
         assertEquals(OK, response.getResponseCode());
         assertEquals("text/plain", response.getContentType().getValue());
