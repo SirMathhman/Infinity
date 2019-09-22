@@ -1,6 +1,6 @@
 package com.meti;
 
-interface Response {
+public interface Response {
     ResponseCode getResponseCode();
 
     ResponseType getResponseType();

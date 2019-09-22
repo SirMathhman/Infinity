@@ -1,6 +1,6 @@
 package com.meti;
 
-interface Route {
+public interface Route {
     boolean canProcess(Request request);
     Response process();
 }

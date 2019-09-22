@@ -1,10 +1,14 @@
-package com.meti;
+package com.meti.router;
+
+import com.meti.Request;
+import com.meti.Response;
+import com.meti.Route;
 
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-class SetRouter implements MutableRouter {
+public class SetRouter implements MutableRouter {
     private final Set<Route> routes = new HashSet<>();
 
     @Override

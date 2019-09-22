@@ -1,5 +1,5 @@
 package com.meti;
 
-interface Request {
+public interface Request {
     String getPath();
 }

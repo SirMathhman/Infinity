@@ -1,12 +1,16 @@
-package com.meti;
+package com.meti.router;
+
+import com.meti.Request;
+import com.meti.Response;
+import com.meti.Route;
 
 import java.util.Collection;
 import java.util.NoSuchElementException;
 
-class CollectionRouter implements Router {
+public class CollectionRouter implements Router {
     private final Collection<Route> routes;
 
-    CollectionRouter(Collection<Route> routes) {
+    public CollectionRouter(Collection<Route> routes) {
         this.routes = routes;
     }
 
