@@ -35,5 +35,10 @@ class PortTest {
         public ByteResponse process() {
             return new ByteResponse(DefaultCode.OK, DefaultType.PLAIN, "test".getBytes());
         }
+
+        @Override
+        public boolean canProcess(Request request) {
+            return true;
+        }
     }
 }

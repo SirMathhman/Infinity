@@ -38,7 +38,11 @@ public class NanoServer implements Server {
 
         @Override
         public Response serve(IHTTPSession session) {
-            return toNanoResponse(router.process());
+            return serveOther(new SessionRequest(session));
+        }
+
+        private Response serveOther(Request request) {
+            return toNanoResponse(router.process(request));
         }
 
         private Response toNanoResponse(com.meti.Response response) {

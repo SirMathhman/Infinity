@@ -1,5 +1,5 @@
 package com.meti;
 
 interface Router {
-    Response process();
+    Response process(Request request);
 }
