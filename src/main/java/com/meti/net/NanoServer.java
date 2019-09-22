@@ -1,6 +1,6 @@
 package com.meti.net;
 
-import com.meti.net.router.Router;
+import com.meti.net.route.Router;
 import fi.iki.elonen.NanoHTTPD;
 import fi.iki.elonen.NanoHTTPD.Response.Status;
 
@@ -39,11 +39,9 @@ public class NanoServer implements Server {
 
         @Override
         public Response serve(IHTTPSession session) {
-            return serveOther(new SessionRequest(session));
-        }
-
-        private Response serveOther(Request request) {
-            return toNanoResponse(router.process(request));
+            Request request = new SessionRequest(session);
+            com.meti.net.response.Response response = router.process(request);
+            return toNanoResponse(response);
         }
 
         private Response toNanoResponse(com.meti.net.response.Response response) {

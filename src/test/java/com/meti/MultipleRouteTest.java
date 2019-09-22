@@ -1,11 +1,15 @@
 package com.meti;
 
-import com.meti.net.*;
+import com.meti.net.NanoServer;
+import com.meti.net.Request;
+import com.meti.net.Server;
+import com.meti.net.URLUtils;
 import com.meti.net.response.ByteResponse;
 import com.meti.net.response.DefaultCode;
 import com.meti.net.response.DefaultType;
 import com.meti.net.response.Response;
-import com.meti.net.router.CollectionRouter;
+import com.meti.net.route.CollectionRouter;
+import com.meti.net.route.Route;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,7 +54,7 @@ class MultipleRouteTest {
 
     static class TestRoute0 implements Route {
         @Override
-        public ByteResponse process() {
+        public ByteResponse process(Request request) {
             return new ByteResponse(DefaultCode.OK, DefaultType.PLAIN, "test0".getBytes());
         }
 
@@ -62,7 +66,7 @@ class MultipleRouteTest {
 
     static class TestRoute1 implements Route {
         @Override
-        public Response process() {
+        public Response process(Request request) {
             return new ByteResponse(DefaultCode.OK, DefaultType.PLAIN, "test1".getBytes());
         }
 

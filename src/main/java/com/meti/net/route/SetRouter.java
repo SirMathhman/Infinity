@@ -1,7 +1,6 @@
-package com.meti.net.router;
+package com.meti.net.route;
 
 import com.meti.net.Request;
-import com.meti.net.Route;
 import com.meti.net.response.Response;
 
 import java.util.HashSet;
@@ -20,7 +19,7 @@ public class SetRouter implements MutableRouter {
     public Response process(Request request) {
         return routes.stream()
                 .filter(route -> route.canProcess(request))
-                .map(Route::process)
+                .map(route1 -> route1.process(request))
                 .findAny()
                 .orElseThrow(NoSuchElementException::new);
     }

@@ -1,4 +1,4 @@
-package com.meti.net.router;
+package com.meti.net.route;
 
 import com.meti.net.Request;
 import com.meti.net.response.Response;

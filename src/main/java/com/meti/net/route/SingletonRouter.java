@@ -1,7 +1,6 @@
-package com.meti.net.router;
+package com.meti.net.route;
 
 import com.meti.net.Request;
-import com.meti.net.Route;
 import com.meti.net.response.Response;
 
 public class SingletonRouter implements Router {
@@ -13,6 +12,6 @@ public class SingletonRouter implements Router {
 
     @Override
     public Response process(Request request) {
-        return route.process();
+        return route.process(request);
     }
 }

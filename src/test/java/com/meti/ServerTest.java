@@ -1,10 +1,14 @@
 package com.meti;
 
-import com.meti.net.*;
+import com.meti.net.NanoServer;
+import com.meti.net.Request;
+import com.meti.net.Server;
+import com.meti.net.URLUtils;
 import com.meti.net.response.ByteResponse;
 import com.meti.net.response.DefaultCode;
 import com.meti.net.response.DefaultType;
-import com.meti.net.router.SingletonRouter;
+import com.meti.net.route.Route;
+import com.meti.net.route.SingletonRouter;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,7 +41,7 @@ class ServerTest {
 
     static class TestRoute implements Route {
         @Override
-        public ByteResponse process() {
+        public ByteResponse process(Request request) {
             return new ByteResponse(DefaultCode.OK, DefaultType.PLAIN, "test".getBytes());
         }
 
