@@ -22,6 +22,6 @@ class OpeningTagTest {
     @Test
     void render() {
         Component element = new OpeningTag("img");
-        assertEquals("<img alt=\"An image.\" src=\"/source\">", element.render());
+        assertEquals("<img>", element.render());
     }
 }
