@@ -12,10 +12,7 @@ class URLUtils {
 
             bytes = new byte[expectedQuantity];
             int actualQuantity = stream.read(bytes);
-            if (!(expectedQuantity == actualQuantity)) {
-                throw new IOException("The number of bytes available is not equal to the " +
-                        "number of bytes read.");
-            }
+            assert expectedQuantity == actualQuantity;
         }
         return bytes;
     }
