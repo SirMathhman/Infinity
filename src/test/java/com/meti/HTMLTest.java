@@ -14,7 +14,10 @@ class HTMLTest {
         values.put("id", "test0");
         values.put("name", "test1");
         Component attributes = new Attributes(values);
-        Component html = new Element("html", attributes);
+        Component html = new SimpleElementBuilder()
+                .withTagName("html")
+                .withAttributes(attributes)
+                .build();
         Group group = new Group(new OpeningTag("!DOCTYPE html"), html);
         assertEquals("<!DOCTYPE html><html id=\"test0\" name=\"test1\"></html>", group.render());
     }
