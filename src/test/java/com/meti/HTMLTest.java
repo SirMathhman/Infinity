@@ -1,5 +1,10 @@
 package com.meti;
 
+import com.meti.render.Component;
+import com.meti.render.element.Attributes;
+import com.meti.render.element.Group;
+import com.meti.render.element.OpeningTag;
+import com.meti.render.element.SimpleElementBuilder;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;

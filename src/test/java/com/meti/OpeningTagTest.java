@@ -1,5 +1,8 @@
 package com.meti;
 
+import com.meti.render.Component;
+import com.meti.render.element.Attributes;
+import com.meti.render.element.OpeningTag;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
