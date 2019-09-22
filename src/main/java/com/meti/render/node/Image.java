@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Image implements Node {
     private final String source;
-    private String alternateText;
+    private final String alternateText;
 
     public Image(String source, String alternateText) {
         this.source = source;
