@@ -13,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -82,7 +81,9 @@ class FormIntegrationTest {
 
         @Override
         public Response process(Request request) {
-            return processorMap.get(request.getMethod()).process(request);
+            Method method = request.getMethod();
+            Processor processor = processorMap.get(method);
+            return processor.process(request);
         }
 
         private Response processGet(Request request) {
@@ -111,9 +112,6 @@ class FormIntegrationTest {
 
         private Node buildScene(Node root) {
             return new SimpleSceneBuilder()
-                    .withCharSet(Charset.defaultCharset())
-                    .withLocale(Locale.getDefault())
-                    .withTitle("Get")
                     .withRoot(root)
                     .build();
         }
@@ -122,7 +120,6 @@ class FormIntegrationTest {
             return new SimpleInputBuilder()
                     .withID("data")
                     .withInitialValue(EXPECTED)
-                    .withInputType(InputType.HIDDEN)
                     .build();
         }
     }
