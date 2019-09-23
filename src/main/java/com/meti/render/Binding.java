@@ -16,10 +16,5 @@ public interface Binding<T> {
 
     Binding<T> set(T other);
 
-    default Binding<T> map(Function<T, T> function) {
-        set(function.apply(get()));
-        return this;
-    }
-
     <R> Binding<R> copy(Function<T, R> function);
 }

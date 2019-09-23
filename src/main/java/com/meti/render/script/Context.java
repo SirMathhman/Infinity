@@ -2,7 +2,7 @@ package com.meti.render.script;
 
 import com.meti.render.Component;
 
-interface Context extends Component {
+public interface Context extends Component {
     <T extends Ref<T>> T _(T ref);
 
     Context $(Component value);

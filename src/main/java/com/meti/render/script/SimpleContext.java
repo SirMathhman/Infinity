@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class SimpleContext implements Context {
+public class SimpleContext implements Context {
     private final Binding<Context> binding;
     private final List<Component> components = new ArrayList<>();
     private final Generator generator;
 
-    SimpleContext(Binding<Context> binding) {
+    public SimpleContext(Binding<Context> binding) {
         this(binding, new SimpleGenerator());
     }
 

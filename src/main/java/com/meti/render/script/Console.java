@@ -2,6 +2,6 @@ package com.meti.render.script;
 
 import com.meti.render.Component;
 
-interface Console {
+public interface Console {
     Component log(Ref<?> ref);
 }

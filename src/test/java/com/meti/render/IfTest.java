@@ -1,7 +1,6 @@
-package com.meti.render.script;
+package com.meti.render;
 
-import com.meti.render.Binding;
-import com.meti.render.SimpleBinding;
+import com.meti.render.script.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

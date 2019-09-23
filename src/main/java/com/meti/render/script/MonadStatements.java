@@ -1,5 +1,5 @@
 package com.meti.render.script;
 
-class MonadStatements {
-    static final MonadStatement<BoolRef> IF = If::new;
+public class MonadStatements {
+    public static final MonadStatement<BoolRef> IF = If::new;
 }

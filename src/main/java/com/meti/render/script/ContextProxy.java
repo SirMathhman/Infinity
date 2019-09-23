@@ -3,7 +3,7 @@ package com.meti.render.script;
 import com.meti.render.Binding;
 import com.meti.render.Component;
 
-interface ContextProxy extends Context {
+public interface ContextProxy extends Context {
     Binding<Context> getBinding();
 
     @Override

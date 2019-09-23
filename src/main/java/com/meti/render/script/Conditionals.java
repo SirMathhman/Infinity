@@ -1,7 +1,6 @@
 package com.meti.render.script;
 
-enum Conditionals implements Conditional {
-    LOOSE("=="),
+public enum Conditionals implements Conditional {
     STRICT("===");
     private final String value;
 

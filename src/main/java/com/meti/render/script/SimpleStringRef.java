@@ -1,12 +1,12 @@
 package com.meti.render.script;
 
-class SimpleStringRef extends SimpleAbstractRef<StringRef> implements StringRef {
+public class SimpleStringRef extends SimpleAbstractRef<StringRef> implements StringRef {
 
     SimpleStringRef(String content) {
         super(content);
     }
 
-    static StringRef of(String content) {
+    public static StringRef of(String content) {
         return new SimpleStringRef("\"" + content + "\"");
     }
 
