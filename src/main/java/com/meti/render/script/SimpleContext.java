@@ -1,9 +1,12 @@
 package com.meti.render.script;
 
+import com.meti.render.Binding;
 import com.meti.render.Component;
+import com.meti.render.SimpleBinding;
 
 class SimpleContext implements Context {
     private final String content;
+    private final Binding<Context> binding = new SimpleBinding<>(this);
 
     SimpleContext() {
         this("");
@@ -15,11 +18,13 @@ class SimpleContext implements Context {
 
     @Override
     public Context print(Component value) {
-        return new SimpleContext(content + value.render());
+        binding.map(context -> new SimpleContext(content + value.render()));
+        return this;
     }
 
     @Override
     public String render() {
-        return content;
+        Context context = binding.get();
+        return this != context ? context.render() : content;
     }
 }

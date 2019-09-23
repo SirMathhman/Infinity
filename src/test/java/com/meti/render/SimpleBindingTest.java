@@ -29,7 +29,7 @@ class SimpleBindingTest {
     @Test
     void compute() {
         Binding<String> parent = new SimpleBinding<>("5");
-        Binding<Integer> child = parent.compute(Integer::parseInt);
+        Binding<Integer> child = parent.copy(Integer::parseInt);
         assertEquals(5, child.get());
     }
 }

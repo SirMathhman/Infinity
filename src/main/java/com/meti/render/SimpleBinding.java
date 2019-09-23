@@ -3,10 +3,10 @@ package com.meti.render;
 import java.util.Optional;
 import java.util.function.Function;
 
-class SimpleBinding<T> implements Binding<T> {
-    private final T value;
+public class SimpleBinding<T> implements Binding<T> {
+    private T value;
 
-    SimpleBinding(T value) {
+    public SimpleBinding(T value) {
         this.value = value;
     }
 
@@ -22,11 +22,12 @@ class SimpleBinding<T> implements Binding<T> {
 
     @Override
     public Binding<T> with(T other) {
-        return new SimpleBinding<>(other);
+        this.value = other;
+        return this;
     }
 
     @Override
-    public <R> Binding<R> compute(Function<T, R> function) {
+    public <R> Binding<R> copy(Function<T, R> function) {
         return new SimpleBinding<>(function.apply(value));
     }
 }
