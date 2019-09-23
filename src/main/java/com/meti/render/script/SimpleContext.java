@@ -3,25 +3,22 @@ package com.meti.render.script;
 import com.meti.render.Binding;
 import com.meti.render.Component;
 
-import java.util.function.Supplier;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 class SimpleContext implements Context {
-    private final String content;
-    private final Generator generator;
     private final Binding<Context> binding;
+    private final List<Component> components = new ArrayList<>();
+    private final Generator generator;
 
     SimpleContext(Binding<Context> binding) {
-        this("", binding, new SimpleGenerator());
+        this(binding, new SimpleGenerator());
     }
 
-    private SimpleContext(String content, Binding<Context> binding, Generator generator) {
-        this.content = content;
+    private SimpleContext(Binding<Context> binding, Generator generator) {
         this.binding = binding;
         this.generator = generator;
-
-        if (!binding.getOptionally().isPresent()) {
-            binding.set(this);
-        }
     }
 
     @Override
@@ -33,13 +30,13 @@ class SimpleContext implements Context {
 
     @Override
     public Context $(Component value) {
-        binding.map(context -> new SimpleContext(content + value.render(), binding, generator));
+        components.add(value);
         return this;
     }
 
     @Override
-    public <A> Context $(Supplier<MonadStatement<A>> supplier, A input, Runnable action) {
-        Context context = supplier.get().with(input);
+    public <A> Context $(MonadStatement<A> supplier, A input, Runnable action) {
+        Context context = supplier.next(input, binding);
         render(action, context);
         return this;
     }
@@ -54,7 +51,9 @@ class SimpleContext implements Context {
 
     @Override
     public String render() {
-        Context context = binding.get();
-        return this != context ? context.render() : "{" + content + "}";
+        String content = components.stream()
+                .map(Component::render)
+                .collect(Collectors.joining());
+        return "{" + content + "}";
     }
 }

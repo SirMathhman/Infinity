@@ -12,22 +12,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class IfTest implements ContextProxy {
     private Binding<Context> binding;
-    private SimpleContext context;
 
     @BeforeEach
     void setUp() {
         binding = new SimpleBinding<>();
-        context = new SimpleContext(binding);
+        binding.set(new SimpleContext(binding));
     }
 
     @Test
-    void renderIf() throws ContextException {
+    void renderIf() {
         Console console = new SimpleConsole();
         StringRef var0 = _(of("5"));
         StringRef var1 = _(of("5"));
         $(IF, var0.$(STRICT, var1), () ->
                 $(console.log(of("2"))));
         assertEquals("{let a0=\"5\";let b1=\"5\";if(a0===b1){console.log(\"2\");}}", render());
+    }
+
+    @Test
+    void renderNestedIf() {
+        Console console = new SimpleConsole();
+        StringRef a0 = _(of("5"));
+        StringRef b1 = _(of("5"));
+        $(IF, a0.$(STRICT, b1), () ->
+                $(IF, b1.$(STRICT, a0), () ->
+                        $(console.log(of("2")))));
+        assertEquals("{let a0=\"5\";let b1=\"5\";if(a0===b1){if(b1===a0){console.log(\"2\");}}}", render());
     }
 
     @Override

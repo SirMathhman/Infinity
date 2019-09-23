@@ -1,5 +1,7 @@
 package com.meti.render.script;
 
-interface MonadStatement<A> extends Context {
-    MonadStatement<A> with(A argument);
+import com.meti.render.Binding;
+
+interface MonadStatement<A> {
+    Context next(A argument, Binding<Context> binding);
 }
