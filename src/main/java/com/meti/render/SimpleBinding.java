@@ -6,6 +6,10 @@ import java.util.function.Function;
 public class SimpleBinding<T> implements Binding<T> {
     private T value;
 
+    public SimpleBinding() {
+        this(null);
+    }
+
     public SimpleBinding(T value) {
         this.value = value;
     }
@@ -21,7 +25,7 @@ public class SimpleBinding<T> implements Binding<T> {
     }
 
     @Override
-    public Binding<T> with(T other) {
+    public Binding<T> set(T other) {
         this.value = other;
         return this;
     }

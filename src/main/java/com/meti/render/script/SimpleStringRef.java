@@ -1,10 +1,9 @@
 package com.meti.render.script;
 
-class SimpleStringRef implements StringRef {
-    private final String content;
+class SimpleStringRef extends SimpleAbstractRef<StringRef> implements StringRef {
 
     SimpleStringRef(String content) {
-        this.content = content;
+        super(content);
     }
 
     static StringRef of(String content) {
@@ -21,8 +20,4 @@ class SimpleStringRef implements StringRef {
         return new SimpleStringRef(content);
     }
 
-    @Override
-    public String render() {
-        return content;
-    }
 }

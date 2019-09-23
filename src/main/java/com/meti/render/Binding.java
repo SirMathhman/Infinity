@@ -8,10 +8,16 @@ public interface Binding<T> {
 
     Optional<T> getOptionally();
 
-    Binding<T> with(T other);
+    default T swap(T other) {
+        T previous = get();
+        set(other);
+        return previous;
+    }
+
+    Binding<T> set(T other);
 
     default Binding<T> map(Function<T, T> function) {
-        with(function.apply(get()));
+        set(function.apply(get()));
         return this;
     }
 

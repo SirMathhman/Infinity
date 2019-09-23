@@ -22,7 +22,7 @@ class SimpleBindingTest {
     @Test
     void with() {
         Binding<String> parent = new SimpleBinding<>("foo");
-        Binding<String> child = parent.with("bar");
+        Binding<String> child = parent.set("bar");
         assertEquals("bar", child.get());
     }
 
