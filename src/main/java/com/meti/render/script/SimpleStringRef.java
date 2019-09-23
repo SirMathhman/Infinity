@@ -7,7 +7,7 @@ class SimpleStringRef implements StringRef {
         this.content = content;
     }
 
-    static StringRef $(String content) {
+    static StringRef of(String content) {
         return new SimpleStringRef("\"" + content + "\"");
     }
 

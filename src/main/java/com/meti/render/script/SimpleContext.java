@@ -17,7 +17,7 @@ class SimpleContext implements Context {
     }
 
     @Override
-    public Context print(Component value) {
+    public Context $(Component value) {
         binding.map(context -> new SimpleContext(content + value.render()));
         return this;
     }

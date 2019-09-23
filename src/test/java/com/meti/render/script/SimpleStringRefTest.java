@@ -9,9 +9,9 @@ class SimpleStringRefTest {
 
     @Test
     void concat() {
-        StringRef a = SimpleStringRef.$("a");
-        StringRef b = SimpleStringRef.$("b");
-        StringRef c = SimpleStringRef.$("c");
+        StringRef a = SimpleStringRef.of("a");
+        StringRef b = SimpleStringRef.of("b");
+        StringRef c = SimpleStringRef.of("c");
         StringRef concat = a.concat(b).concat(c);
         assertEquals("\"a\"+\"b\"+\"c\"", concat.render());
     }
@@ -31,7 +31,7 @@ class SimpleStringRefTest {
 
     @Test
     void of() {
-        Component value = SimpleStringRef.$("test");
+        Component value = SimpleStringRef.of("test");
         assertEquals("\"test\"", value.render());
     }
 }
