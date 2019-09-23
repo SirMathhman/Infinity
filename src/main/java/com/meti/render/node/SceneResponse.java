@@ -1,18 +1,18 @@
-package com.meti.net.response;
+package com.meti.render.node;
 
-public class ByteResponse implements Response {
+import com.meti.net.response.Response;
+import com.meti.net.response.ResponseCode;
+import com.meti.net.response.ResponseType;
+
+public class SceneResponse implements Response {
     private final ResponseCode responseCode;
     private final ResponseType responseType;
-    private final byte[] bytes;
+    private final Node node;
 
-    public ByteResponse(ResponseCode responseCode) {
-        this(responseCode, DefaultType.PLAIN, new byte[0]);
-    }
-
-    public ByteResponse(ResponseCode responseCode, ResponseType responseType, byte[] bytes) {
+    public SceneResponse(ResponseCode responseCode, ResponseType responseType, Node node) {
         this.responseCode = responseCode;
         this.responseType = responseType;
-        this.bytes = bytes;
+        this.node = node;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class ByteResponse implements Response {
 
     @Override
     public byte[] getBytes() {
-        return bytes;
+        return node.render().render().getBytes();
     }
 }

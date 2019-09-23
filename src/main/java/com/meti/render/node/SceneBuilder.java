@@ -1,7 +1,5 @@
 package com.meti.render.node;
 
-import com.meti.render.Component;
-
 import java.nio.charset.Charset;
 import java.util.Locale;
 
@@ -12,7 +10,7 @@ public interface SceneBuilder {
 
     SceneBuilder withLocale(Locale locale);
 
-    SceneBuilder withRoot(Component root);
+    SceneBuilder withRoot(Node root);
 
     Node build();
 }

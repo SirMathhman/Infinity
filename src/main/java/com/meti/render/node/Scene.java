@@ -9,13 +9,13 @@ import com.meti.render.element.SimpleElementBuilder;
 import java.nio.charset.Charset;
 import java.util.Locale;
 
-class Scene implements Node {
+public class Scene implements Node {
     private final String title;
     private final Locale locale;
     private final Charset charSet;
-    private final Component root;
+    private final Node root;
 
-    Scene(String title, Charset charSet, Locale locale, Component root) {
+    Scene(String title, Charset charSet, Locale locale, Node root) {
         this.charSet = charSet;
         this.locale = locale;
         this.title = title;
@@ -43,7 +43,7 @@ class Scene implements Node {
     private Component buildBody() {
         return new SimpleElementBuilder()
                 .withTagName("body")
-                .withChildren(root)
+                .withChildren(root.render())
                 .build();
     }
 

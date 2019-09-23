@@ -1,5 +1,6 @@
 package com.meti.net.route;
 
+import com.meti.net.Method;
 import com.meti.net.Request;
 import com.meti.net.response.Response;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,12 @@ class PathRouteTest {
     @Test
     void canProcess() {
         Route route = new TestRoute();
-        Request request = () -> "/test";
+        String path = "/test";
+        Method method = Method.GET;
+        Request request = new InlineRequestBuilder()
+                .withPath(path)
+                .withMethod(method)
+                .build();
         assertTrue(route.canProcess(request));
     }
 
@@ -28,4 +34,5 @@ class PathRouteTest {
             return null;
         }
     }
+
 }

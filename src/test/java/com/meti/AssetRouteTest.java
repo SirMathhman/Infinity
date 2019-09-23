@@ -2,10 +2,7 @@ package com.meti;
 
 import com.meti.net.response.DefaultCode;
 import com.meti.net.response.Response;
-import com.meti.net.route.AssetRoute;
-import com.meti.net.route.PathAssetRoute;
-import com.meti.net.route.Router;
-import com.meti.net.route.SingletonRouter;
+import com.meti.net.route.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,7 +43,8 @@ class AssetRouteTest {
     @Test
     void construct() {
         Router router = new SingletonRouter(new PathAssetRoute(rootDirectory, "/assets"));
-        Response response = router.process(() -> "/assets/test/test.txt");
+        RequestBuilder builder = new InlineRequestBuilder();
+        Response response = router.process(builder.withPath("/assets/test/test.txt").build());
         assertEquals(DefaultCode.OK, response.getResponseCode());
         assertEquals("text/plain", response.getResponseType().getValue());
         assertEquals("test", new String(response.getBytes()));

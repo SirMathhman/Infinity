@@ -34,7 +34,8 @@ class SceneTest {
         SceneBuilder builder = new SimpleSceneBuilder();
         return builder.withTitle("A Title")
                 .withCharSet(StandardCharsets.UTF_8)
-                .withLocale(Locale.getDefault()).withRoot(root)
+                .withLocale(Locale.getDefault())
+                .withRoot(() -> root)
                 .build();
     }
 

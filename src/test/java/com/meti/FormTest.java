@@ -1,11 +1,10 @@
 package com.meti;
 
+import com.meti.net.Method;
 import com.meti.net.Request;
 import com.meti.net.response.Response;
 import com.meti.net.route.PathRoute;
-import com.meti.net.route.RouteMethod;
-import com.meti.render.node.Form;
-import com.meti.render.node.Node;
+import com.meti.render.node.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -17,8 +16,22 @@ class FormTest {
     @Test
     void construct() {
         Node submit = new Submit();
-        Node form = new Form(new SubmitRoute(), RouteMethod.POST, Collections.singleton(submit));
+        Node form = buildForm(submit);
         assertEquals("<form action=\"/submit\" method=\"POST\"><input type=\"submit\"></form>", form.render().render());
+    }
+
+    private Form buildForm(Node submit) {
+        return new FormBuilder()
+                .withNodeData(buildData())
+                .withAction(new SubmitRoute())
+                .withMethod(Method.POST)
+                .withChildren(Collections.singleton(submit))
+                .build();
+    }
+
+    private NodeData buildData() {
+        NodeDataBuilder builder = new SimpleNodeDataBuilder();
+        return builder.build();
     }
 
     private static class SubmitRoute implements PathRoute {
