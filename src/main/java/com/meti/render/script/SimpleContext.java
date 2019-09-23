@@ -3,6 +3,8 @@ package com.meti.render.script;
 import com.meti.render.Binding;
 import com.meti.render.Component;
 
+import java.util.function.Supplier;
+
 class SimpleContext implements Context {
     private final String content;
     private final Generator generator;
@@ -36,16 +38,10 @@ class SimpleContext implements Context {
     }
 
     @Override
-    public <A> Context $(Class<? extends MonadStatement<A>> clazz, A input, Runnable action) throws ContextException {
-        try {
-            Context context = clazz.getConstructor()
-                    .newInstance()
-                    .with(input);
-            render(action, context);
-            return this;
-        } catch (Exception e) {
-            throw new ContextException(e);
-        }
+    public <A> Context $(Supplier<MonadStatement<A>> supplier, A input, Runnable action) {
+        Context context = supplier.get().with(input);
+        render(action, context);
+        return this;
     }
 
 

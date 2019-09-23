@@ -6,7 +6,7 @@ import com.meti.render.SimpleBinding;
 class If extends SimpleContext implements MonadStatement<BoolRef> {
     private final BoolRef condition;
 
-    public If() {
+    If() {
         this(null, new SimpleBinding<>());
     }
 

@@ -3,6 +3,8 @@ package com.meti.render.script;
 import com.meti.render.Binding;
 import com.meti.render.Component;
 
+import java.util.function.Supplier;
+
 interface ContextProxy extends Context {
     Binding<Context> getBinding();
 
@@ -21,7 +23,7 @@ interface ContextProxy extends Context {
     }
 
     @Override
-    default <A> Context $(Class<? extends MonadStatement<A>> clazz, A input, Runnable action) throws ContextException {
+    default <A> Context $(Supplier<MonadStatement<A>> clazz, A input, Runnable action) throws ContextException {
         return get().$(clazz, input, action);
     }
 
