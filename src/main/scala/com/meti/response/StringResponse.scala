@@ -1,4 +1,4 @@
-package com.meti
+package com.meti.response
 
 case class StringResponse(code: ResponseCode, responseType: ResponseType, value: String) extends Response {
 	override def getCode: ResponseCode = code

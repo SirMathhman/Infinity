@@ -2,7 +2,8 @@ package com.meti
 
 import java.net.URL
 
-import com.meti.{Response => _}
+import com.meti.response.{DefaultCode, Plain, Response, StringResponse}
+import com.meti.route.{Route, SingletonRouter}
 import org.junit.jupiter.api.Assertions._
 import org.junit.jupiter.api.{AfterEach, BeforeEach, Test}
 

@@ -1,4 +1,4 @@
-package com.meti
+package com.meti.response
 
 trait ResponseCode {
 	def getValue: Int
