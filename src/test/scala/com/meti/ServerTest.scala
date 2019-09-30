@@ -2,7 +2,7 @@ package com.meti
 
 import java.net.URL
 
-import com.meti.response.{DefaultCode, Plain, Response, StringResponse}
+import com.meti.response.{DefaultCode, PlainType, Response, StringResponse}
 import com.meti.route.{Route, SingletonRouter}
 import org.junit.jupiter.api.Assertions._
 import org.junit.jupiter.api.{AfterEach, BeforeEach, Test}
@@ -32,7 +32,7 @@ class ServerTest {
 	}
 
 	object TestRoute extends Route {
-		override def process: Response = StringResponse(DefaultCode.OK, Plain, "test")
+		override def process(request: Request): Response = StringResponse(DefaultCode.OK, PlainType, "test")
 	}
 
 }

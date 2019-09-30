@@ -1,5 +1,5 @@
 package com.meti.response
 
-object Plain extends ResponseType {
+object PlainType extends ResponseType {
 	override def value: String = "text/plain"
 }
