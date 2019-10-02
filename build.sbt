@@ -2,7 +2,7 @@ name := "Infinity"
 
 version := "1.0"
 
-scalaVersion := "2.12.7"
+scalaVersion := "2.13.1"
 
 libraryDependencies += "org.nanohttpd" % "nanohttpd" % "+"
 libraryDependencies += "org.nanohttpd" % "nanohttpd-websocket" % "+"
